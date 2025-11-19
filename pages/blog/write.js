@@ -5,6 +5,7 @@ import { FaImage } from 'react-icons/fa6'
 import { useAuth } from '@/hooks/use-auth'
 import Swal from 'sweetalert2' // 引入 SweetAlert2
 import { useRouter } from 'next/router'
+import { apiBaseUrl } from '@/configs'
 
 const ReactQuill = dynamic(() => import('react-quill'), { ssr: false })
 import 'react-quill/dist/quill.bubble.css'
@@ -233,7 +234,7 @@ const Write = () => {
     console.log(title, category, value, image, userID, new Date().toISOString())
 
     try {
-      const response = await fetch('http://localhost:3005/api/blog/write', {
+      const response = await fetch('${apiBaseUrl}/blog/write', {
         method: 'POST',
         body: formData,
         credentials: 'include', // Ensure that cookies/session data are included

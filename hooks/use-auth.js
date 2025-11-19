@@ -3,6 +3,7 @@ import { useRouter } from 'next/router'
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
 import { checkAuth, getFavs, getCourseFavs } from '@/services/user'
+import { apiBaseUrl } from '@/configs'
 
 const AuthContext = createContext(null)
 AuthContext.displayName = 'AuthContext'
@@ -101,7 +102,7 @@ export function AuthProvider({ children }) {
   }
 
   const getMember = async () => {
-    const res = await fetch('http://localhost:3005/api/users', {
+    const res = await fetch('${apiBaseUrl}/users', {
       credentials: 'include',
       headers: {
         Accept: 'application/json',
@@ -120,7 +121,7 @@ export function AuthProvider({ children }) {
   }
 
   const register = async (user) => {
-    const res = await fetch('http://localhost:3005/api/users', {
+    const res = await fetch('${apiBaseUrl}/users', {
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
@@ -162,7 +163,7 @@ export function AuthProvider({ children }) {
   }
 
   const update = async (user) => {
-    const res = await fetch('http://localhost:3005/api/users', {
+    const res = await fetch('${apiBaseUrl}/users', {
       credentials: 'include',
       headers: {
         Accept: 'application/json',
@@ -182,7 +183,7 @@ export function AuthProvider({ children }) {
   }
 
   const login = async (account, password) => {
-    const res = await fetch('http://localhost:3005/api/users/login', {
+    const res = await fetch('${apiBaseUrl}/users/login', {
       credentials: 'include',
       headers: {
         Accept: 'application/json',
@@ -241,7 +242,7 @@ export function AuthProvider({ children }) {
   }
 
   const logout = async () => {
-    const res = await fetch('http://localhost:3005/api/users/logout', {
+    const res = await fetch('${apiBaseUrl}/users/logout', {
       credentials: 'include',
       headers: {
         Accept: 'application/json',
@@ -298,7 +299,7 @@ export function AuthProvider({ children }) {
 
   const refreshSession = async () => {
     try {
-      const res = await fetch('http://localhost:3005/api/users/refresh-token', {
+      const res = await fetch('${apiBaseUrl}/users/refresh-token', {
         credentials: 'include',
         headers: {
           Accept: 'application/json',

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import styles from '@/styles/product-styles/product-detail-down.module.scss'
+import { apiBaseUrl } from '@/configs'
 
 export default function ProductDetailDown({ description, product_id }) {
   const [activeTab, setActiveTab] = useState('product')
@@ -13,7 +14,7 @@ export default function ProductDetailDown({ description, product_id }) {
     const fetchReviews = async () => {
       try {
         const response = await fetch(
-          `http://localhost:3005/api/comments/product/${product_id}?sort=${sortOption}`
+          `${apiBaseUrl}/comments/product/${product_id}?sort=${sortOption}`
         );
         const result = await response.json();
 

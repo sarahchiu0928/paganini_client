@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react'
 import styles from './cart.module.scss'
 import Router from 'next/router'
+import { apiBaseUrl } from '@/configs'
 
 function complete() {
   // ----- API 請求 -----
@@ -9,7 +10,7 @@ function complete() {
 
   const fetchOrders = async () => {
     try {
-      const response = await fetch(`http://localhost:3005/api/orders/last`, {
+      const response = await fetch(`${apiBaseUrl}/orders/last`, {
         credentials: 'include',
         method: 'GET',
         headers: {

@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react'
 import Swal from 'sweetalert2' // 導入 SweetAlert2
 import styles from 'pages/cart/cart.module.scss'
 import { useRouter } from 'next/router'
+import { apiBaseUrl } from '@/configs'
 
 function ProductDetails({
   card_id,
@@ -35,7 +36,7 @@ function ProductDetails({
   const updateQuantity = async (newQuantity) => {
     try {
       const response = await fetch(
-        'http://localhost:3005/api/cart/updateQuantity',
+        '${apiBaseUrl}/cart/updateQuantity',
         {
           credentials: 'include',
           method: 'PUT',
@@ -73,7 +74,7 @@ function ProductDetails({
     const fetchFavorites = async () => {
       try {
         const response = await fetch(
-          `http://localhost:3005/api/product-favorites`,
+          `${apiBaseUrl}/product-favorites`,
           { credentials: 'include' }
         )
         const data = await response.json()
@@ -137,7 +138,7 @@ function ProductDetails({
         if (result.isConfirmed) {
           try {
             const response = await fetch(
-              `http://localhost:3005/api/product-favorites/${product_id}`,
+              `${apiBaseUrl}/product-favorites/${product_id}`,
               {
                 method: 'PUT',
                 credentials: 'include',
@@ -261,7 +262,7 @@ function ProductDetails({
     try {
       const response = await fetch(
         `
-        http://localhost:3005/api/cart/remove`,
+        ${apiBaseUrl}/cart/remove`,
         {
           credentials: 'include',
           method: 'DELETE',

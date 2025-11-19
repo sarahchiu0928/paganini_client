@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { apiBaseUrl } from '@/configs'
 
 const [data, setData] = useState([])
 
@@ -6,7 +7,7 @@ const [data, setData] = useState([])
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('http://localhost:3005/api/product')
+        const response = await fetch(`${apiBaseUrl}/product`)
         const result = await response.json() 
         if (result.status === 'success') {
           setData(result.data.shop)

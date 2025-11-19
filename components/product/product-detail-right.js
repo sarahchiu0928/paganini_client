@@ -5,6 +5,7 @@ import styles from '@/styles/product-styles/product-detail-right.module.scss'
 import { useAuth } from '@/hooks/use-auth'
 import ProductLikeIcon from '@/components/product-like/like-icon'
 import { useOrderCoupon } from '@/hooks/order-coupon' // 購物車數量
+import { apiBaseUrl } from '@/configs'
 
 export default function ProductDetailRight({
   product_id,
@@ -128,7 +129,7 @@ export default function ProductDetailRight({
 
     try {
       // 發送請求以檢查購物車中該產品及尺寸的現有數量
-      const cartResponse = await fetch(`http://localhost:3005/api/cart/check`, {
+      const cartResponse = await fetch(`${apiBaseUrl}/cart/check`, {
         credentials: 'include',
         method: 'POST',
         headers: {
@@ -164,7 +165,7 @@ export default function ProductDetailRight({
       }
 
       // 發送請求將商品加入購物車
-      const addResponse = await fetch('http://localhost:3005/api/cart/add', {
+      const addResponse = await fetch('${apiBaseUrl}/cart/add', {
         credentials: 'include',
         method: 'POST',
         headers: {

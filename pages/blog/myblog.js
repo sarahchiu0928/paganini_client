@@ -7,6 +7,7 @@ import CategorySection from '@/components/blog/common/category-section/category-
 import Pagination from '@/components/blog/common/pagination/pagination'
 import SearchBar from '@/components/blog/common/search-bar/search-bar'
 import { useAuth } from '@/hooks/use-auth'
+import { apiBaseUrl } from '@/configs'
 
 export default function List() {
   const { auth } = useAuth() // 使用 useAuth hook 获取登录用户信息
@@ -66,7 +67,7 @@ export default function List() {
   useEffect(() => {
     async function fetchBlogs() {
       try {
-        let url = `http://localhost:3005/api/blog/myblog/${userID}?limit=${blogsPerPage}&page=${
+        let url = `${apiBaseUrl}/blog/myblog/${userID}?limit=${blogsPerPage}&page=${
           currentPage + 1
         }` // 添加分页参数
         if (selectedCategory && selectedCategory !== '所有類別') {
@@ -163,7 +164,7 @@ export default function List() {
       if (result.isConfirmed) {
         try {
           const res = await fetch(
-            `http://localhost:3005/api/blog/myblog/${userID}/${blogID}/softdelete`,
+            `${apiBaseUrl}/blog/myblog/${userID}/${blogID}/softdelete`,
             {
               method: 'PUT',
             }

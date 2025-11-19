@@ -16,8 +16,10 @@ const swalOptions = {
   },
 }
 
+import { apiBaseUrl } from '@/configs'
+
 // 常量：API 路徑
-const API_BASE_URL = 'http://localhost:3005/api/comments'
+const API_BASE_URL = `${apiBaseUrl}/comments`
 
 // ReviewCard Component
 function ReviewCard({ review, openModal, isCompleted }) {

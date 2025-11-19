@@ -7,6 +7,7 @@ import Modal from 'react-bootstrap/Modal' // 使用 react-bootstrap 的 Modal �
 import Button from 'react-bootstrap/Button' // 使用 react-bootstrap 的 Button 元件
 import { useOrderCoupon } from '@/hooks/order-coupon'
 import Router from 'next/router'
+import { apiBaseUrl } from '@/configs'
 
 export default function CartIndex() {
   // 購物車商品列表
@@ -78,7 +79,7 @@ export default function CartIndex() {
   // API-GET(cart)-取得會員購物車內容
   const fetchData = async () => {
     try {
-      const response = await fetch(`http://localhost:3005/api/cart`, {
+      const response = await fetch(`${apiBaseUrl}/cart`, {
         credentials: 'include', // 帶入會員id用
         method: 'GET',
         headers: {
@@ -147,7 +148,7 @@ export default function CartIndex() {
   const updateAllCheckedStatus = async (selectAll) => {
     try {
       const response = await fetch(
-        `http://localhost:3005/api/cart/updateAllChecked`,
+        `${apiBaseUrl}/cart/updateAllChecked`,
         {
           credentials: 'include',
           method: 'PUT',
@@ -181,7 +182,7 @@ export default function CartIndex() {
   const updateCheckedStatus = async (product_id, size, newChecked) => {
     try {
       const response = await fetch(
-        `http://localhost:3005/api/cart/updateChecked`,
+        `${apiBaseUrl}/cart/updateChecked`,
         {
           credentials: 'include',
           method: 'PUT',
@@ -250,7 +251,7 @@ export default function CartIndex() {
     if (showCouponModal) {
       const fetchValidCoupons = async () => {
         try {
-          const response = await fetch('http://localhost:3005/api/mycoupons', {
+          const response = await fetch('${apiBaseUrl}/mycoupons', {
             method: 'GET',
             credentials: 'include',
             headers: {
@@ -309,7 +310,7 @@ export default function CartIndex() {
 
     try {
       const response = await fetch(
-        'http://localhost:3005/api/mycoupons/search',
+        '${apiBaseUrl}/mycoupons/search',
         {
           credentials: 'include',
           method: 'POST',

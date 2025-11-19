@@ -5,6 +5,7 @@ import TypeDropdown from '@/components/course/type-dropdown'
 import styles from '@/styles/course.module.scss'
 import Search from '@/components/course/search'
 import PageSelector from '@/components/common/page-selector/page-selector'
+import { apiBaseUrl } from '@/configs'
 
 const CourseList = () => {
   const [data, setData] = useState([])
@@ -20,7 +21,7 @@ const CourseList = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('http://localhost:3005/api/course')
+        const response = await fetch('${apiBaseUrl}/course')
         const result = await response.json()
         if (result.status === 'success') {
           setData(result.data.course)

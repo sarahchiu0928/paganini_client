@@ -4,6 +4,7 @@ import Swal from 'sweetalert2';
 import { useRouter } from 'next/router';
 import Coupon from '@/components/coupon/coupon'
 import { useAuth } from '@/hooks/use-auth';
+import { apiBaseUrl } from '@/configs'
 
 const CouponPage = () => {
   const [data, setData] = useState([])
@@ -32,7 +33,7 @@ const CouponPage = () => {
   // 加載所有優惠券資料
   const fetchAllCoupons = async () => {
     try {
-      const response = await fetch('http://localhost:3005/api/coupon')
+      const response = await fetch('${apiBaseUrl}/coupon')
       const result = await response.json()
       if (result.status === 'success') {
         setData(result.data.coupon)
@@ -45,7 +46,7 @@ const CouponPage = () => {
   // 獲取會員已領取的優惠券
   const fetchClaimedCoupons = async () => {
     try {
-      const response = await fetch('http://localhost:3005/api/mycoupons', {
+      const response = await fetch('${apiBaseUrl}/mycoupons', {
         credentials: 'include',
        
       })
@@ -88,7 +89,7 @@ const handleClaimClick = async () => {
     return;
   }
   try {
-    const response = await fetch('http://localhost:3005/api/mycoupons/search', {
+    const response = await fetch('${apiBaseUrl}/mycoupons/search', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

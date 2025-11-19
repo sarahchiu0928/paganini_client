@@ -1,6 +1,7 @@
 import React, { useState, useContext, createContext, useEffect } from 'react'
 import Swal from 'sweetalert2'
 import { useAuth } from '@/hooks/use-auth'
+import { apiBaseUrl } from '@/configs'
 
 const OrderCouponContext = createContext(null)
 
@@ -15,7 +16,7 @@ export const OrderCouponProvider = ({ children }) => {
   // 取得購物車勾選商品數的函式
   const fetchCheckedCount = async () => {
     try {
-      const response = await fetch('http://localhost:3005/api/cart/checkedCount', {
+      const response = await fetch(`${apiBaseUrl}/cart/checkedCount`, {
         method: 'GET',
         credentials: 'include',
         headers: {

@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBookmark } from '@fortawesome/free-solid-svg-icons'
 import styles from './card.module.scss'
 import Poster from '../poster/poster'
+import { blogBaseUrl } from '@/configs'
 
 const Card = ({
   title,
@@ -20,7 +21,7 @@ const Card = ({
     try {
       // 如果圖片名稱以 'blog_cover' 開頭，則從後端的 'public/blog' 路徑加載
       if (url.startsWith('blog_cover')) {
-        return `http://localhost:3005/blog/${url}` // 從後端服務器加載
+        return `${blogBaseUrl}/${url}` // 從後端服務器加載
       }
 
       // 如果是其他圖片，則假設它是相對於前端的靜態路徑

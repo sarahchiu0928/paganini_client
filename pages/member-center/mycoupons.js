@@ -4,6 +4,7 @@ import tabStyle from './tab.module.scss'
 import UserCoupon from '@/components/coupon/user-coupon'
 import Swal from 'sweetalert2'
 import styles from '@/styles/member-center/mycoupons.module.scss'
+import { apiBaseUrl } from '@/configs'
 
 // 每個 Tab 的內容子元件
 function AllCoupons({ coupons }) {
@@ -74,7 +75,7 @@ function Tabs() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`http://localhost:3005/api/mycoupons`, {
+        const response = await fetch(`${apiBaseUrl}/mycoupons`, {
           credentials: 'include',
           method: 'GET',
           headers: {
@@ -103,7 +104,7 @@ function Tabs() {
   const handleClaimClick = async () => {
     try {
       const response = await fetch(
-        'http://localhost:3005/api/mycoupons/search',
+        '${apiBaseUrl}/mycoupons/search',
         {
           method: 'POST',
           headers: {

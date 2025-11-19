@@ -14,8 +14,9 @@ import {
   FaChevronLeft,
   FaChevronRight,
 } from 'react-icons/fa'
+import { apiBaseUrl } from '@/configs'
 
-const API_URL = 'http://localhost:3005/api/blog'
+const API_URL = `${apiBaseUrl}/blog`
 
 const Blog = () => {
   const router = useRouter()

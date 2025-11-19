@@ -7,6 +7,7 @@ import styles from '@/styles/product-styles/list.module.scss'
 import PageSelector from '@/components/common/page-selector/page-selector'
 import { IoSearch } from 'react-icons/io5'
 import FilterOffcanvas from '@/components/product/filter-offcanvas'
+import { apiBaseUrl } from '@/configs'
 
 export default function List() {
   const router = useRouter()
@@ -45,7 +46,7 @@ export default function List() {
           : ''
 
         const response = await fetch(
-          `http://localhost:3005/api/products?page=${currentPage}&limit=9&search=${searchTerm}&category=${selectedCategory}&brand=${selectedBrand}&sort=${selectedSortOption}${priceParams}`
+          `${apiBaseUrl}/products?page=${currentPage}&limit=9&search=${searchTerm}&category=${selectedCategory}&brand=${selectedBrand}&sort=${selectedSortOption}${priceParams}`
         )
         const result = await response.json()
         if (result.status === 'success') {
@@ -73,7 +74,7 @@ export default function List() {
     const fetchCategoriesAndBrands = async () => {
       try {
         const response = await fetch(
-          'http://localhost:3005/api/products/categories-and-brands'
+          `${apiBaseUrl}/products/categories-and-brands`
         )
         const result = await response.json()
         if (result.status === 'success') {

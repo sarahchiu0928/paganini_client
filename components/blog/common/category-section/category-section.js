@@ -3,6 +3,7 @@ import { FaChevronDown, FaChevronUp } from 'react-icons/fa' // 引入箭頭圖�
 import FilterTitle from '../titles/filter-title'
 import CategoryRadio from './category-radio'
 import styles from './category-section.module.scss'
+import { apiBaseUrl } from '@/configs'
 
 const CategorySection = ({ selectedCategory, onCategoryChange }) => {
   const categories = [
@@ -23,7 +24,7 @@ const CategorySection = ({ selectedCategory, onCategoryChange }) => {
   // 向後端請求獲取每個類別的文章數量
   const fetchCategoryCounts = async () => {
     try {
-      const response = await fetch('http://localhost:3005/api/blog') // 確認API端點
+      const response = await fetch(`${apiBaseUrl}/blog`) // 確認API端點
       const data = await response.json()
 
       console.log('Category Counts:', data.category_counts)

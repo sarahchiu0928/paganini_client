@@ -3,6 +3,7 @@ import { FaTrashAlt } from 'react-icons/fa'
 import { IoEye } from 'react-icons/io5'
 import { AiFillEdit } from 'react-icons/ai'
 import styles from './card.module.scss'
+import { blogBaseUrl } from '@/configs'
 
 const Card = ({
   title,
@@ -44,7 +45,7 @@ const Card = ({
 
     try {
       if (url.startsWith('blog_cover')) {
-        return `http://localhost:3005/blog/${url}` // 從後端服務器加載
+        return `${blogBaseUrl}/${url}` // 從後端服務器加載
       }
       return `/blog/${url.replace(/^\/+/, '')}` // 移除 URL 開頭的多餘斜線
     } catch (error) {

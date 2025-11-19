@@ -3,6 +3,7 @@ import FilterTitle from '../titles/filter-title'
 import CategoryRadio from './category-radio'
 import styles from './category-section.module.scss'
 import { useAuth } from '@/hooks/use-auth' // 引入 useAuth 钩子获取用户信息
+import { apiBaseUrl } from '@/configs'
 
 import { FaChevronDown, FaChevronUp } from 'react-icons/fa' // 引入箭頭圖標
 
@@ -54,7 +55,7 @@ const CategorySection = ({ selectedCategory, onCategoryChange }) => {
     const fetchCategoryCounts = async () => {
       try {
         const response = await fetch(
-          `http://localhost:3005/api/blog/myblog/${userID}`
+          `${apiBaseUrl}/blog/myblog/${userID}`
         )
         const data = await response.json()
 

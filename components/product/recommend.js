@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import styles from '@/styles/product-styles/recommend.module.scss'
 import { useRouter } from 'next/router'
 import ProductLikeIcon from '@/components/product-like/like-icon'
+import { apiBaseUrl } from '@/configs'
 
 export default function Recommend({ product_id }) {
   const router = useRouter()
@@ -13,7 +14,7 @@ export default function Recommend({ product_id }) {
       if (!router.query.pid) return;
 
       try {
-        const response = await fetch(`http://localhost:3005/api/products/recommend/${router.query.pid}`);
+        const response = await fetch(`${apiBaseUrl}/products/recommend/${router.query.pid}`);
         const data = await response.json();
 
         if (data.status === 'success') {

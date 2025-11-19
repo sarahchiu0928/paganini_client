@@ -8,6 +8,7 @@ import sizeOptions from '@/data/product/Size.json'
 import tagOptions from '@/data/product/Tag.json'
 // 載入分頁元件
 import BS5Pagination from '@/components/common/bs5-pagination'
+import { apiBaseUrl } from '@/configs'
 
 export default function ProductStateList() {
   // 各選項的state
@@ -63,7 +64,7 @@ export default function ProductStateList() {
     const searchParams = new URLSearchParams(params)
 
     const res = await axios.get(
-      `http://localhost:3005/api/products?${searchParams.toString()}`
+      `${apiBaseUrl}/products?${searchParams.toString()}`
     )
 
     //console.log(res.data)

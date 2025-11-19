@@ -9,6 +9,7 @@ import MemberCenterLayout from '@/components/MemberCenter/MemberCenterLayout'
 import tabStyle from './tab.module.scss'
 import styles from '@/styles/member-center/like.module.scss'
 import { BsHeartFill } from 'react-icons/bs'
+import { apiBaseUrl } from '@/configs'
 
 // Tab 內容元件
 function Products() {
@@ -18,7 +19,7 @@ function Products() {
     const fetchFavorites = async () => {
       try {
         const response = await fetch(
-          `http://localhost:3005/api/product-favorites`,
+          `${apiBaseUrl}/product-favorites`,
           { credentials: 'include' }
         )
         const data = await response.json()
@@ -192,7 +193,7 @@ function Courses() {
   useEffect(() => {
     const fetchFavorites = async () => {
       try {
-        const response = await fetch(`http://localhost:3005/api/course-like`, {
+        const response = await fetch(`${apiBaseUrl}/course-like`, {
           credentials: 'include',
         })
         const data = await response.json()

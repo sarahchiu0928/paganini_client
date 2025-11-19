@@ -3,6 +3,7 @@ import Swal from 'sweetalert2' // 導入 SweetAlert2
 import styles from './coupon.module.scss'
 import { useAuth } from '@/hooks/use-auth';
 import Modal from './modal';
+import { apiBaseUrl } from '@/configs'
 
 const Coupon = ({ coupons, onCouponClaimed }) => {
   const { auth } = useAuth();
@@ -52,7 +53,7 @@ const Coupon = ({ coupons, onCouponClaimed }) => {
       return;
   }
     try {
-      const response = await fetch('http://localhost:3005/api/mycoupons', {
+      const response = await fetch(`${apiBaseUrl}/mycoupons`, {
         credentials: 'include',
         method: 'POST',
         headers: {

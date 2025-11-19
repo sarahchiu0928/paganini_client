@@ -5,6 +5,7 @@ import { useAuth } from '@/hooks/use-auth'
 import Link from 'next/link'
 import toast, { Toaster } from 'react-hot-toast'
 import Image from 'next/image'
+import { apiBaseUrl } from '@/configs'
 
 export default function Order() {
   const router = useRouter()
@@ -31,7 +32,7 @@ export default function Order() {
   const goLinePay = () => {
     if (window.confirm('確認要導向至LINE Pay進行付款?')) {
       // 先連到node伺服器後，導向至LINE Pay付款頁面
-      window.location.href = `http://localhost:3005/api/line-pay/reserve?orderId=${order.orderId}`
+      window.location.href = `${apiBaseUrl}/line-pay/reserve?orderId=${order.orderId}`
     }
   }
 

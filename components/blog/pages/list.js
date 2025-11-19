@@ -9,6 +9,7 @@ import SearchBar from '../common/search-bar/search-bar'
 import Loading from '@/components/common/loading/loading'
 import { debounce } from 'lodash'
 import { useAuth } from '@/hooks/use-auth' // 导入 useAuth hook
+import { apiBaseUrl } from '@/configs'
 
 export default function List() {
   const { auth } = useAuth() // 使用 useAuth hook 获取登录用户信息
@@ -66,7 +67,7 @@ export default function List() {
       category,
     })
     try {
-      const response = await fetch(`http://localhost:3005/api/blog?${params}`)
+      const response = await fetch(`${apiBaseUrl}/blog?${params}`)
       const data = await response.json()
       setBlogs(data.blogs)
       setTotalBlogs(data.total_count)

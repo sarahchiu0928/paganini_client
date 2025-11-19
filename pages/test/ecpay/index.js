@@ -5,6 +5,7 @@ import { useAuth } from '@/hooks/use-auth'
 import Link from 'next/link'
 import toast, { Toaster } from 'react-hot-toast'
 import Image from 'next/image'
+import { apiBaseUrl } from '@/configs'
 
 export default function ECPayIndex() {
   const router = useRouter()
@@ -38,7 +39,7 @@ export default function ECPayIndex() {
   const goECPay = () => {
     if (window.confirm('確認要導向至ECPay進行付款?')) {
       // 先連到node伺服器後，導向至ECPay付款頁面
-      window.location.href = `http://localhost:3005/api/ecpay/payment?orderId=${order.orderId}`
+      window.location.href = `${apiBaseUrl}/ecpay/payment?orderId=${order.orderId}`
     }
   }
 

@@ -3,6 +3,7 @@ import Swal from 'sweetalert2' // 引入 SweetAlert2 用於顯示提示訊息
 import styles from './cart.module.scss'
 import { useRouter } from 'next/router'
 import { useOrderCoupon } from '@/hooks/order-coupon'
+import { apiBaseUrl } from '@/configs'
 
 function details() {
   const router = useRouter()
@@ -66,7 +67,7 @@ function details() {
   // 抓取會員資料並更新表單
   const fetchUserData = async () => {
     try {
-      const response = await fetch(`http://localhost:3005/api/users`, {
+      const response = await fetch(`${apiBaseUrl}/users`, {
         credentials: 'include',
         method: 'GET',
         headers: {
@@ -109,7 +110,7 @@ function details() {
   // 抓取所有門市資料
   const fetchShops = async () => {
     try {
-      const response = await fetch('http://localhost:3005/api/shop')
+      const response = await fetch('${apiBaseUrl}/shop')
       const result = await response.json()
       if (result.status === 'success') {
         setShops(result.data.shop) // 儲存門市資料至 shops 狀態
@@ -127,7 +128,7 @@ function details() {
   // 建立訂單
   const addToOrders = async () => {
     try {
-      const response = await fetch('http://localhost:3005/api/orders/add', {
+      const response = await fetch('${apiBaseUrl}/orders/add', {
         credentials: 'include',
         method: 'POST',
         headers: {

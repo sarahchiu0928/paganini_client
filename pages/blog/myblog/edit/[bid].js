@@ -7,6 +7,7 @@ import axios from 'axios'
 import { useAuth } from '@/hooks/use-auth'
 import Swal from 'sweetalert2' // 引入 SweetAlert2
 import { useNameAsBreadcrumb } from '@/hooks/use-name-as-breadcrumb' // 導入麵包屑名稱傳遞用的 hook
+import { apiBaseUrl, blogBaseUrl } from '@/configs'
 
 // 動態導入 ReactQuill
 const ReactQuill = dynamic(() => import('react-quill'), { ssr: false })
@@ -42,7 +43,7 @@ const Edit = () => {
   useEffect(() => {
     if (bid) {
       axios
-        .get(`http://localhost:3005/api/blog/myblog/edit/${bid}`)
+        .get(`${apiBaseUrl}/blog/myblog/edit/${bid}`)
         .then((response) => {
           const { blog } = response.data
           setTitle(blog.title)
@@ -53,7 +54,7 @@ const Edit = () => {
 
           const imageUrl = blog.cover_img_url.startsWith('http')
             ? blog.cover_img_url
-            : `http://localhost:3005/blog/${blog.cover_img_url}`
+            : `${blogBaseUrl}/${blog.cover_img_url}`
 
           setImagePreview(imageUrl)
         })
@@ -181,7 +182,7 @@ const Edit = () => {
 
     try {
       const response = await axios.put(
-        `http://localhost:3005/api/blog/myblog/edit/${bid}`,
+        `${apiBaseUrl}/blog/myblog/edit/${bid}`,
         formData,
         {
           headers: {

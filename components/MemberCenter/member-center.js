@@ -4,6 +4,7 @@ import tabStyle from './tab.module.scss';
 import MemberProfileForm from './member-profile'; // 匯入會員資料表單元件
 import PasswordChangeForm from './member-password'; // 匯入修改密碼表單元件
 import { useAuth } from '@/hooks/use-auth';
+import { apiBaseUrl } from '@/configs'
 
 export default function MemberProfile() {
   const { auth } = useAuth();
@@ -32,7 +33,7 @@ export default function MemberProfile() {
   const handleSave = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://localhost:3005/api/users/update-profile', {
+      const response = await fetch(`${apiBaseUrl}/users/update-profile`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

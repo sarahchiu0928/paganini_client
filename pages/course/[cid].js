@@ -7,6 +7,7 @@ import styles from '@/styles/course-cid.module.scss'
 import CourseLike from '@/components/course-like/like-icon'
 import Image from 'next/image'
 import CourseCard from '@/components/course/course-card'
+import { apiBaseUrl } from '@/configs'
 
 const Course = () => {
   const router = useRouter()
@@ -33,7 +34,7 @@ const Course = () => {
 
     const fetchData = async () => {
       try {
-        const response = await fetch(`http://localhost:3005/api/course/${cid}`)
+        const response = await fetch(`${apiBaseUrl}/course/${cid}`)
         const result = await response.json()
         if (result.status === 'success') {
           setData(result.data.course)
@@ -56,7 +57,7 @@ const Course = () => {
   useEffect(() => {
     const fetchAllCourse = async () => {
       try {
-        const response = await fetch('http://localhost:3005/api/course')
+        const response = await fetch('${apiBaseUrl}/course')
         const result = await response.json()
         if (result.status === 'success') {
           const sortedCourse = result.data.course.sort(
@@ -79,7 +80,7 @@ const Course = () => {
 
     const fetchRelatedCourses = async () => {
       try {
-        const response = await fetch('http://localhost:3005/api/course') // 確認 API 路徑是否正確
+        const response = await fetch('${apiBaseUrl}/course') // 確認 API 路徑是否正確
         const result = await response.json()
 
         if (result.status === 'success' && Array.isArray(result.data.course)) {

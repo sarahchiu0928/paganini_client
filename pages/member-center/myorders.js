@@ -6,6 +6,7 @@ import Swal from 'sweetalert2'
 import Router from 'next/router'
 import { Modal, Button, Form } from 'react-bootstrap'
 import { FaStar } from 'react-icons/fa'
+import { apiBaseUrl } from '@/configs'
 
 const SwalOptions = {
   customClass: {
@@ -57,7 +58,7 @@ function ProductDetails({
       try {
         const encodedSize = encodeURIComponent(size) // 編碼 size
         const response = await fetch(
-          `http://localhost:3005/api/comments/check/${product_id}/${encodedSize}`,
+          `${apiBaseUrl}/comments/check/${product_id}/${encodedSize}`,
           {
             method: 'GET',
             credentials: 'include',
@@ -89,7 +90,7 @@ function ProductDetails({
       }
 
       // 發送評價至後端
-      const response = await fetch(`http://localhost:3005/api/comments/add`, {
+      const response = await fetch(`${apiBaseUrl}/comments/add`, {
         credentials: 'include',
         method: 'POST',
         headers: {
@@ -249,7 +250,7 @@ function TabContent1() {
   const [endDate, setEndDate] = useState('')
   const fetchOngoingOrders = async (start = '', end = '') => {
     try {
-      const response = await fetch(`http://localhost:3005/api/orders/ongoing`, {
+      const response = await fetch(`${apiBaseUrl}/orders/ongoing`, {
         credentials: 'include',
         method: 'GET',
         headers: {
@@ -280,7 +281,7 @@ function TabContent1() {
   const fetchOrderItems = async (orderId) => {
     try {
       const response = await fetch(
-        `http://localhost:3005/api/orders/${orderId}/items`,
+        `${apiBaseUrl}/orders/${orderId}/items`,
         {
           credentials: 'include',
           method: 'GET',
@@ -372,7 +373,7 @@ function TabContent2() {
   const [endDate, setEndDate] = useState('')
   const fetchHistoryOrders = async (start = '', end = '') => {
     try {
-      const response = await fetch(`http://localhost:3005/api/orders/history`, {
+      const response = await fetch(`${apiBaseUrl}/orders/history`, {
         credentials: 'include',
         method: 'GET',
         headers: {
@@ -403,7 +404,7 @@ function TabContent2() {
   const fetchOrderItems = async (orderId) => {
     try {
       const response = await fetch(
-        `http://localhost:3005/api/orders/${orderId}/items`,
+        `${apiBaseUrl}/orders/${orderId}/items`,
         {
           credentials: 'include',
           method: 'GET',

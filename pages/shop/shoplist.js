@@ -3,6 +3,7 @@ import styles from './shopList.module.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPhoneAlt,faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 import { faPhone, faMapLocation } from '@fortawesome/free-solid-svg-icons'
+import { apiBaseUrl } from '@/configs'
 
 function Tabs() {
   const [activeTab, setActiveTab] = useState('tab1')
@@ -26,7 +27,7 @@ function Tabs() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('http://localhost:3005/api/shop')
+        const response = await fetch(`${apiBaseUrl}/shop`)
         const result = await response.json()
         if (result.status === 'success') {
           setData(result.data.shop)

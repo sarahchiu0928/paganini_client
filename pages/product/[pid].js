@@ -6,6 +6,7 @@ import Recommend from '@/components/product/recommend'
 import styles from '@/styles/product-styles/[pid].module.scss'
 import { useRouter } from 'next/router'
 import { useNameAsBreadcrumb } from '@/hooks/use-name-as-breadcrumb' // 導入麵包屑名稱傳遞用的 hook
+import { apiBaseUrl } from '@/configs'
 
 export default function Detail() {
   const router = useRouter()
@@ -28,7 +29,7 @@ export default function Detail() {
   const [isMobile, setIsMobile] = useState(false);
 
   const getProduct = async (id) => {
-    const url = `http://localhost:3005/api/products/${id}`
+    const url = `${apiBaseUrl}/products/${id}`
 
     try {
       const res = await fetch(url)
