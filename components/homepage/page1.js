@@ -7,15 +7,13 @@ import {
   faCartShopping,
   faUser,
   faRightFromBracket,
-  faSignInAlt, // 新增的登入圖示
 } from '@fortawesome/free-solid-svg-icons'
 import { faSoundcloud } from '@fortawesome/free-brands-svg-icons'
 import Swal from 'sweetalert2'
 import { useAuth } from '@/hooks/use-auth'
 import styles from './page1.module.scss'
-import { useRouter } from 'next/router'
 
-export default function Page1(props) {
+export default function Page1() {
   const { auth, logout } = useAuth() // 取得登入狀態和登出方法
 
   // [購物車登入檢查]

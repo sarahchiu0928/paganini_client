@@ -10,7 +10,7 @@ const Cards = ({ blogs }) => {
 
   return (
     <div className={styles.cards}>
-      {blogs.map((blog) => (
+      {blogs?.map((blog) => (
         <Card
           key={blog.id}
           title={blog.title}
