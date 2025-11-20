@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { FaChevronDown, FaChevronUp } from 'react-icons/fa' // 引入箭頭圖標
-import FilterTitle from '../titles/filter-title'
 import CategoryRadio from './category-radio'
 import styles from './category-section.module.scss'
 import { apiBaseUrl } from '@/configs'

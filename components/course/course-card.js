@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { useRouter } from 'next/router'
 import Image from 'next/image'
 import styles from './course-card.module.scss'
@@ -29,12 +29,6 @@ const CourseCard = ({ course, searchTerm }) => {
       )
     )
   }
-
-  // 調整課程簡介字數
-  const summary =
-    course.course_summary.length > 29
-      ? `${course.course_summary.substring(0, 29)}...`
-      : course.course_summary
 
   return (
     <>

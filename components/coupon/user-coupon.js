@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
+import Image from 'next/image'
 import styles from './user-coupon.module.scss'
 
 const Coupon = ({ coupons }) => {
@@ -52,7 +53,12 @@ const Coupon = ({ coupons }) => {
               <>
                 <div className={styles['overlay']}></div>
                 <div className={styles['stamp']}>
-                  <img src="/images/coupon/used.png" alt="已使用" />
+                  <Image
+                    src="/images/coupon/used.png"
+                    alt="已使用"
+                    width={100}
+                    height={100}
+                  />
                 </div>
               </>
             )}
@@ -60,7 +66,12 @@ const Coupon = ({ coupons }) => {
               <>
                 <div className={styles['overlay']}></div>
                 <div className={styles['stamp']}>
-                  <img src="/images/coupon/expired.png" alt="已失效" />
+                  <Image
+                    src="/images/coupon/expired.png"
+                    alt="已失效"
+                    width={100}
+                    height={100}
+                  />
                 </div>
               </>
             )}

@@ -62,6 +62,7 @@ export default function InputDatePicker({
         setDate(date)
       })
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   // control datepicker block show/hide

@@ -1,6 +1,5 @@
 import React from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBookmark } from '@fortawesome/free-solid-svg-icons'
+import Image from 'next/image'
 import styles from './card.module.scss'
 import Poster from '../poster/poster'
 import { blogBaseUrl } from '@/configs'
@@ -61,10 +60,12 @@ const Card = ({
   return (
     <div className={styles.card}>
       {/* 處理圖片路徑，並設置錯誤處理 */}
-      <img
+      <Image
         src={getImgSrc(coverImgUrl)} // 這裡用我們的圖片處理函數
         className={styles.cardImgTop}
         alt={title || 'Blog Cover'}
+        width={400}
+        height={250}
         onError={(e) => {
           // 如果圖片加載失敗，設置默認圖片
           e.target.src = '/blog/default-cover.png'

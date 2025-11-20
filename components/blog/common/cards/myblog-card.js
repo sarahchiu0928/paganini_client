@@ -1,4 +1,5 @@
 import React from 'react'
+import Image from 'next/image'
 import { FaTrashAlt } from 'react-icons/fa'
 import { IoEye } from 'react-icons/io5'
 import { AiFillEdit } from 'react-icons/ai'
@@ -62,10 +63,12 @@ const Card = ({
 
   return (
     <div className={styles.card}>
-      <img
+      <Image
         src={getImgSrc(coverImgUrl)} // 這裡使用的是封面圖片的處理函數
         className={styles.cardImgTop}
         alt={title || 'Blog Cover'}
+        width={400}
+        height={250}
       />
       <div className={styles.iconBg}>
         <FaTrashAlt

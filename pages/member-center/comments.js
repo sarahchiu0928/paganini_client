@@ -5,6 +5,7 @@ import Router from 'next/router'
 import { FaStar } from 'react-icons/fa'
 import { Modal, Button, Form } from 'react-bootstrap'
 import Swal from 'sweetalert2'
+import Image from 'next/image'
 
 // 客製化樣式設定
 const swalOptions = {
@@ -28,9 +29,11 @@ function ReviewCard({ review, openModal, isCompleted }) {
       <div className="row align-items-center">
         {/* 商品圖片 */}
         <div className="col-12 col-sm-3 col-md-2 d-flex justify-content-center mb-3 mb-sm-0">
-          <img
+          <Image
             src={`/product-pics/${review.product_brand_name}/${review.picture_url}`}
             alt={review.product_name}
+            width={80}
+            height={80}
             className="img-fluid bg-white"
             style={{ maxWidth: '80px' }}
           />

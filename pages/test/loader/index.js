@@ -27,6 +27,7 @@ export default function DemoGlobal() {
     demoAsyncCall()
       .then(delay(3000)) // 延時3秒後再停止載入器，只有手動控制有用，自動關閉會無用
       .then(hideLoader)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   // 按鈕測試用

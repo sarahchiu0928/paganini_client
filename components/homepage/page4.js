@@ -120,9 +120,11 @@ const CourseSection = () => {
                 } ${index % 2 === 1 ? styles.paddingTop : ''}`}
               >
                 <div className={` ${styles.card} me-md-5 fontLight `}>
-                  <img
+                  <Image
                     src={`/homepage/course${index + 1}.png`}
                     alt={course.title}
+                    width={300}
+                    height={200}
                     className={styles.courseImage}
                   />
 

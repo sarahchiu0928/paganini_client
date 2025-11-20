@@ -207,7 +207,6 @@ function Products() {
 // 課程 Tab 內容元件
 function Courses() {
   const [favorites, setFavorites] = useState([])
-  const router = useRouter()
   useEffect(() => {
     const fetchFavorites = async () => {
       try {

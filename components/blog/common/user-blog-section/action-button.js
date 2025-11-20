@@ -1,7 +1,7 @@
 // components/blog/common/user-blog-section/action-button.js
 
 import React from 'react'
-import { AiFillBookmark, AiOutlineRead, AiFillEdit } from 'react-icons/ai'
+import { AiFillBookmark, AiFillEdit } from 'react-icons/ai'
 import { IoNewspaperSharp } from 'react-icons/io5'
 import styles from './action-button.module.scss'
 

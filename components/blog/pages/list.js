@@ -6,7 +6,6 @@ import UserBlog from '../common/user-blog-section/user-blog-section'
 import CategorySection from '../common/category-section/category-section'
 import Pagination from '../common/pagination/pagination'
 import SearchBar from '../common/search-bar/search-bar'
-import Loading from '@/components/common/loading/loading'
 import { debounce } from 'lodash'
 import { useAuth } from '@/hooks/use-auth' // 导入 useAuth hook
 import { apiBaseUrl } from '@/configs'
@@ -17,7 +16,6 @@ export default function List() {
   const [totalBlogs, setTotalBlogs] = useState(0) // 存储博客总数
   const [currentPage, setCurrentPage] = useState(1) // 当前页数
   const [totalPages, setTotalPages] = useState(0) // 总页数
-  const [loading, setLoading] = useState(true) // 加载状态
   const [sortOrder, setSortOrder] = useState('DESC') // 排序顺序
   const [search, setSearch] = useState('') // 搜索字符串
   const [category, setCategory] = useState('') // 选中的类别
@@ -58,7 +56,6 @@ export default function List() {
 
   // 获取博客数据
   const fetchBlogs = async () => {
-    setLoading(true)
     const params = new URLSearchParams({
       page: currentPage,
       limit: 12,
@@ -74,13 +71,12 @@ export default function List() {
       setTotalPages(data.total_pages)
     } catch (error) {
       console.error('Error fetching blogs:', error)
-    } finally {
-      setLoading(false)
     }
   }
 
   useEffect(() => {
     fetchBlogs()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [sortOrder, currentPage, category, search]) // 当页码、排序、搜索或类别变更时重新加载博客
 
   // 处理排序变更
@@ -105,6 +101,7 @@ export default function List() {
   }
 
   // 防抖处理类别变更
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const handleCategoryChange = useCallback(
     debounce((newCategory) => {
       setCategory(newCategory)

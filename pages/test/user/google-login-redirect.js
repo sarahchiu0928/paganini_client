@@ -19,6 +19,7 @@ export default function GoogleLoginRedirect() {
   // 這裡要設定initApp，讓這個頁面能監聽firebase的google登入狀態
   useEffect(() => {
     initApp(callbackGoogleLoginRedirect)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   // 處理google登入後，要向伺服器進行登入動作

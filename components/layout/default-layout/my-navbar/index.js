@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
 import { IoPerson } from 'react-icons/io5'
@@ -97,7 +98,12 @@ export default function MyNavbar() {
               <BsList className="hamburger fontLight" />
             </Button>
             <Link href="/homepage" className="navbar-brand logo">
-              <img src="/homepage/LightBoldLogo.svg" alt="PAGANINI_LOGO" />
+              <Image
+                src="/homepage/LightBoldLogo.svg"
+                alt="PAGANINI_LOGO"
+                width={150}
+                height={50}
+              />
               <p className="fontLight">PAGANINI</p>
             </Link>
             <div className="collapse navbar-collapse" id="navbarNav">

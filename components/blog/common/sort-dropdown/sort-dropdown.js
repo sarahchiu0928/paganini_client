@@ -16,6 +16,7 @@ const SortDropdown = ({ onSortChange }) => {
       setSelectedSort(sortLabel)
       onSortChange(order) // 根据 URL 参数更新排序
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []) // 组件加载时执行一次
 
   // 当选择排序选项时，更新排序并更新 URL

@@ -1,20 +1,17 @@
 import React, { useState, useEffect } from 'react'
+import Image from 'next/image'
 import Link from 'next/link'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {
-  faFacebookF,
-  faInstagram,
-  faLine,
-} from '@fortawesome/free-brands-svg-icons'
 
 const DefaultFooter = () => (
   <footer className="footer">
     <div className="container px-5">
       <div className="row row-cols-1 row-cols-md-4 py-5">
         <div className="col d-flex align-items-center flex-column flex-xl-row custom-flex-column">
-          <img
+          <Image
             src="/homepage/LightBoldLogo.svg"
             alt="帕格尼尼 Paganini"
+            width={100}
+            height={40}
             className="img-fluid"
             style={{ width: '100px', height: 'auto', marginTop: '-13px' }}
           />

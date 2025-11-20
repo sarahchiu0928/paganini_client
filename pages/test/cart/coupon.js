@@ -28,7 +28,7 @@ export default function Coupon() {
     // decrement,
   } = useCart()
 
-  const [couponOptions, setCouponOptions] = useState(coupons)
+  const [couponOptions] = useState(coupons)
   const [selectedCouponId, setSelectedCouponId] = useState(0)
   const [netTotal, setNetTotal] = useState(0)
 
@@ -48,7 +48,7 @@ export default function Coupon() {
         : Math.round(cart.totalPrice * (1 - coupon.value))
 
     setNetTotal(newNetTotal)
-  }, [cart.totalPrice, selectedCouponId])
+  }, [cart.totalPrice, selectedCouponId, couponOptions])
 
   return (
     <>

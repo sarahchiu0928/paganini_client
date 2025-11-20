@@ -4,6 +4,7 @@ import {
   updateProfileAvatar,
 } from '@/services/user'
 import { useState, useEffect } from 'react'
+import Image from 'next/image'
 import { useAuth } from '@/hooks/use-auth'
 import toast, { Toaster } from 'react-hot-toast'
 import Link from 'next/link'
@@ -85,8 +86,7 @@ export default function Profile() {
 
     // 送到伺服器進行更新
     // 更新會員資料用，排除avatar
-    let isUpdated = false
-
+    // eslint-disable-next-line no-unused-vars
     const { avatar, ...user } = userProfile
     const res = await updateProfile(auth.userData.id, user)
 
@@ -139,7 +139,7 @@ export default function Profile() {
         />
       ) : (
         <div>
-          <img src="/blank.webp" alt="" width="200" height="200" />
+          <Image src="/blank.webp" alt="" width={200} height={200} />
           <div>
             <button onClick={handleSubmit}> </button>
           </div>

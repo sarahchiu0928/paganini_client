@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import Image from 'next/image'
 import styles from '@/styles/product-styles/recommend.module.scss'
 import { useRouter } from 'next/router'
 import ProductLikeIcon from '@/components/product-like/like-icon'
@@ -68,12 +69,14 @@ export default function Recommend() {
                     cursor: 'pointer',
                   }}
                 >
-                  <img
+                  <Image
                     src={
                       hoveredProductId === product.id && hoverPic
                         ? `/product-pics/${product.brand_name}/${hoverPic}`
                         : `/product-pics/${product.brand_name}/${defaultPic}`
                     }
+                    width={300}
+                    height={300}
                     className={`${styles.recommendCardImg} card-img-top`}
                     alt={product.product_name}
                   />

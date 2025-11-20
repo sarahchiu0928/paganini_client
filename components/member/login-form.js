@@ -24,7 +24,7 @@ export default function LoginForm() {
       }, 30 * 60 * 1000) // 30分鐘
     }
     return () => clearInterval(interval) // 清除定時器
-  }, [auth.isAuth])
+  }, [auth.isAuth, refreshSession])
 
   // 登入處理
   const handleLogin = async () => {
@@ -116,7 +116,12 @@ export default function LoginForm() {
                   />
                 </div>
                 <div className={styles.logoOverlay}>
-                  <img src="/homepage/LightBoldLogo.svg" alt="Logo" />
+                  <Image
+                    src="/homepage/LightBoldLogo.svg"
+                    alt="Logo"
+                    width={200}
+                    height={60}
+                  />
                 </div>
               </div>
             </div>

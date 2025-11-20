@@ -6,6 +6,7 @@ import Swal from 'sweetalert2'
 import Router from 'next/router'
 import { Modal, Button, Form } from 'react-bootstrap'
 import { FaStar } from 'react-icons/fa'
+import Image from 'next/image'
 import { apiBaseUrl } from '@/configs'
 
 const SwalOptions = {
@@ -134,9 +135,11 @@ function ProductDetails({
       <div className="row align-items-center">
         {/* 商品圖片 */}
         <div className="col-6 col-sm-3 col-md-2 d-flex justify-content-center">
-          <img
+          <Image
             src={image}
             alt={name}
+            width={80}
+            height={80}
             className="img-fluid bg-white"
             style={{ maxWidth: '80px' }}
           />

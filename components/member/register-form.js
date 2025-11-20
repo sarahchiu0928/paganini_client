@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import Image from 'next/image'
 import styles from './register.module.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
@@ -101,9 +102,11 @@ export default function RegisterForm() {
     <div className={`${styles.wrapper}`}>
       <div className={`container-lg ${styles.registerContainer} p-0 pb-5`}>
         <div className={styles.headerImage}>
-          <img
+          <Image
             src="/homepage/PAGANINI.png"
             alt="overlay"
+            width={500}
+            height={100}
             className="opacity-50"
           />
         </div>

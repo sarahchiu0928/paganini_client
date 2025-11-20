@@ -42,6 +42,7 @@ const CategorySection = ({ selectedCategory, onCategoryChange }) => {
     const urlParams = new URLSearchParams(window.location.search)
     const categoryFromURL = urlParams.get('category') || '所有類別' // 默認選中 "所有類別"
     onCategoryChange(categoryFromURL) // 初始化 selectedCategory
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []) // 只在組件掛載時觸發一次
 
   // 向后端請求獲取每個類別的文章數量

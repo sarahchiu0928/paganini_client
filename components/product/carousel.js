@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import Image from 'next/image'
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react'
 
@@ -39,9 +40,11 @@ export default function Carousel({ pictures, brand_name }) {
       >
         {pictures.map((picture, index) => (
           <SwiperSlide key={index}>
-            <img
+            <Image
               src={`/product-pics/${brand_name}/${picture}`}
               alt={`product ${index}`}
+              width={500}
+              height={500}
               style={{ objectFit: 'contain' }}
             />
           </SwiperSlide>
@@ -62,8 +65,10 @@ export default function Carousel({ pictures, brand_name }) {
         {pictures.map((picture, index) => (
           <SwiperSlide key={index}>
             <div className={styles.smallImg}>
-              <img
+              <Image
                 src={`/product-pics/${brand_name}/${picture}`}
+                width={100}
+                height={100}
                 alt={`thumbnail ${index}`}
                 style={{ objectFit: 'contain' }}
               />

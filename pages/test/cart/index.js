@@ -13,18 +13,8 @@ import toast, { Toaster } from 'react-hot-toast'
 
 export default function CartTestIndex() {
   //可從useCart中獲取的各方法與屬性，參考README檔中說明
-  const {
-    cart,
-    items,
-    addItem,
-    removeItem,
-    updateItem,
-    updateItemQty,
-    clearCart,
-    isInCart,
-    increment,
-    decrement,
-  } = useCart()
+  const { cart, addItem, removeItem, updateItemQty, clearCart, isInCart } =
+    useCart()
 
   return (
     <>

@@ -33,9 +33,11 @@ export default function Page2() {
           </video>
         </div>
         <div>
-          <img
-            src="homepage/Linked Path Group (1).gif"
+          <Image
+            src="/homepage/Linked Path Group (1).gif"
             alt="Animated GIF"
+            width={500}
+            height={300}
             style={{
               width: '350px',
               hight: '350px',

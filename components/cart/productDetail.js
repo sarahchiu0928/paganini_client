@@ -1,5 +1,6 @@
 // client/components/cart/productDetail.js
 import React, { useState, useEffect } from 'react'
+import Image from 'next/image'
 import Swal from 'sweetalert2' // 導入 SweetAlert2
 import { useRouter } from 'next/router'
 import { apiBaseUrl } from '@/configs'
@@ -367,9 +368,11 @@ function ProductDetails({
             tabIndex={0}
             style={{ cursor: 'pointer' }}
           >
-            <img
+            <Image
               src={`/product-pics/${brand_name}/${productPics}`}
               alt={product_name}
+              width={80}
+              height={80}
               className="img-fluid bg-light mb-1"
               style={{ maxWidth: '80px' }}
             />

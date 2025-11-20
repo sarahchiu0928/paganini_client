@@ -9,6 +9,7 @@ export default function Placeholder() {
   // didmount-初次渲染
   useEffect(() => {
     showLoader()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   // 如果是狀態初始化值，不呈現任何資料

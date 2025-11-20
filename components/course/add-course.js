@@ -2,7 +2,6 @@ import React from 'react'
 import style from './add-course.module.scss'
 // icon
 import { IoCalendarClear } from 'react-icons/io5'
-import { BsHeart, BsHeartFill } from 'react-icons/bs'
 import { IoTime } from 'react-icons/io5'
 import { IoMdPerson } from 'react-icons/io'
 import CourseLike from '@/components/course-like/like-icon'

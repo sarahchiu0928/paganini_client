@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleChevronRight } from '@fortawesome/free-solid-svg-icons'
 import { faCircleChevronLeft } from '@fortawesome/free-solid-svg-icons'

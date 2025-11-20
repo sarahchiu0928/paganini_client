@@ -4,7 +4,6 @@ import axiosInstance from '@/services/axios-instance'
 import { useAuth } from '@/hooks/use-auth'
 import Link from 'next/link'
 import toast, { Toaster } from 'react-hot-toast'
-import Image from 'next/image'
 import { apiBaseUrl } from '@/configs'
 
 export default function ECPayIndex() {

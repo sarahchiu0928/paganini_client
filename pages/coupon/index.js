@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import styles from '@/styles/coupon.module.scss'
 import Swal from 'sweetalert2'
-import { useRouter } from 'next/router'
 import Coupon from '@/components/coupon/coupon'
 import { useAuth } from '@/hooks/use-auth'
 import { apiBaseUrl } from '@/configs'

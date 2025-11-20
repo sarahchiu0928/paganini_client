@@ -95,7 +95,7 @@ export default function NextBreadCrumb({
     })
 
     return pathsDisplay
-  }, [isReady, asPath, subtitle]) // 確保 subtitle 取值
+  }, [isReady, pathname, subtitle]) // 確保 subtitle 取值
 
   useEffect(() => {
     if (isReady) {

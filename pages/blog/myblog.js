@@ -14,8 +14,6 @@ export default function List() {
   const userID = auth.userData.ID // 假设 auth.userData 中有 ID
   const [blogs, setBlogs] = useState([]) // 用来存储从后端获取的文章数据
   const [selectedCategory, setSelectedCategory] = useState('所有類別') // 默认选择 "所有类别"
-  const [loading, setLoading] = useState(true) // 控制加载状态
-  const [error, setError] = useState(null) // 错误处理
   const [order, setOrder] = useState('DESC') // 默认排序顺序是由新到旧
   const [currentPage, setCurrentPage] = useState(0) // 当前页数
   const [blogsPerPage] = useState(12) // 每页显示的博客数量
@@ -114,8 +112,6 @@ export default function List() {
             confirmButton: 'swal2-custom-confirm-button',
           },
         })
-      } finally {
-        setLoading(false) // 确保无论请求是否成功，都更新 loading 状态
       }
     }
     fetchBlogs()
@@ -234,14 +230,6 @@ export default function List() {
         })
       }
     })
-  }
-
-  // if (loading) {
-  //   return <p>載入中...</p> // 确保当 loading 为 true 时显示
-  // }
-
-  if (error) {
-    return <p>{error}</p> // 显示错误信息
   }
 
   // 切割分页数据：只显示当前页的数据
