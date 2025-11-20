@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { useRouter } from 'next/router'
 import ActionButton from './action-button'
 import styles from './user-blog-section.module.scss'
 
@@ -6,6 +7,7 @@ import styles from './user-blog-section.module.scss'
 import { FaChevronDown, FaChevronUp } from 'react-icons/fa'
 
 const UserBlog = ({ isUserLoggedIn }) => {
+  const router = useRouter()
   const buttonLabels = ['我的部落格', '發布部落格']
 
   // 定义状态来控制收合/展开
@@ -33,10 +35,10 @@ const UserBlog = ({ isUserLoggedIn }) => {
   const handleButtonClick = (label) => {
     switch (label) {
       case '我的部落格':
-        window.location.href = 'http://localhost:3000/blog/myblog'
+        router.push('/blog/myblog')
         break
       case '發布部落格':
-        window.location.href = 'http://localhost:3000/blog/write'
+        router.push('/blog/write')
         break
       default:
         break

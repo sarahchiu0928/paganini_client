@@ -233,7 +233,7 @@ const Write = () => {
           },
         }).then(() => {
           // 用戶點擊"確定"後跳轉到該文章頁面
-          router.push('http://localhost:3000/blog')
+          router.push('/blog')
         })
 
         // Reset form fields after successful submission

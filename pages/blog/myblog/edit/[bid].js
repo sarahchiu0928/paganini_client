@@ -186,7 +186,7 @@ const Edit = () => {
         },
       }).then(() => {
         // 用戶點擊"確定"後跳轉到該文章頁面
-        router.push('http://localhost:3000/blog/myblog')
+        router.push('/blog/myblog')
       })
     } catch (error) {
       // 失敗彈出提示
@@ -202,7 +202,7 @@ const Edit = () => {
         },
       }).then(() => {
         // 用戶點擊"確定"後跳轉到部落格列表或首頁
-        router.push('http://localhost:3000/blog/myblog')
+        router.push('/blog/myblog')
       })
     }
   }
