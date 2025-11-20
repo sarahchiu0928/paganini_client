@@ -154,4 +154,24 @@ export const CartProvider = ({
   )
 }
 
-export const useCart = () => useContext(CartContext)
+export const useCart = () => {
+  const context = useContext(CartContext)
+  // 在 SSR 時，如果 Context 為 null，返回一個默認值
+  if (!context) {
+    return {
+      cart: { items: [], isEmpty: true, totalItems: 0, totalPrice: 0 },
+      items: [],
+      addItem: () => {},
+      removeItem: () => {},
+      updateItem: () => {},
+      updateItemQty: () => {},
+      clearCart: () => {},
+      isInCart: () => false,
+      increment: () => {},
+      decrement: () => {},
+      title: '',
+      setTitle: () => {},
+    }
+  }
+  return context
+}

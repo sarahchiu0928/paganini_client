@@ -2,6 +2,7 @@ import { useCart } from '@/hooks/use-cart-state'
 import List from '@/components/cart/list'
 import Link from 'next/link'
 import toast, { Toaster } from 'react-hot-toast'
+import dynamic from 'next/dynamic'
 
 // cart init
 // initialState = {
@@ -11,7 +12,7 @@ import toast, { Toaster } from 'react-hot-toast'
 //   cartTotal: 0,
 // }
 
-export default function CartTestIndex() {
+function CartTestIndex() {
   //可從useCart中獲取的各方法與屬性，參考README檔中說明
   const { cart, addItem, removeItem, updateItemQty, clearCart, isInCart } =
     useCart()
@@ -128,3 +129,6 @@ export default function CartTestIndex() {
     </>
   )
 }
+
+// 使用動態導入避免 SSR 問題
+export default dynamic(() => Promise.resolve(CartTestIndex), { ssr: false })

@@ -3,6 +3,7 @@ import List from '@/components/cart/list'
 import Link from 'next/link'
 import { useState, useEffect } from 'react'
 import toast, { Toaster } from 'react-hot-toast'
+import dynamic from 'next/dynamic'
 
 // 範例資料
 // type: 'amount'相減，'percent'折扣
@@ -13,7 +14,7 @@ const coupons = [
   { id: 3, name: '8折券', value: 0.2, type: 'percent' },
 ]
 
-export default function Coupon() {
+function Coupon() {
   //可從useCart中獲取的各方法與屬性，參考README檔中說明
   const {
     cart,
@@ -180,3 +181,6 @@ export default function Coupon() {
     </>
   )
 }
+
+// 使用動態導入避免 SSR 問題
+export default dynamic(() => Promise.resolve(Coupon), { ssr: false })

@@ -18,6 +18,7 @@ import { BreadcrumbProvider } from '@/hooks/use-name-as-breadcrumb'
 
 // 載入購物車context
 import { OrderCouponProvider } from '@/hooks/order-coupon'
+import { CartProvider } from '@/hooks/use-cart-state'
 
 import DefaultLayout from '@/components/layout/default-layout'
 import { useRouter } from 'next/router'
@@ -42,44 +43,46 @@ export default function MyApp({ Component, pageProps }) {
     <AuthProvider>
       <LoaderProvider close={0.5} CustomLoader={CustomLoader} global={true}>
         <BreadcrumbProvider>
-          <OrderCouponProvider>
-            {isHomePage ? (
-              // 若為首頁，直接渲染 Component，不使用 DefaultLayout
-              <Component {...pageProps} />
-            ) : (
-              // 其他頁面則使用 DefaultLayout
-              getLayout(<Component {...pageProps} />)
-            )}
-            <Toaster
-              position="bottom-right"
-              toastOptions={{
-                duration: 3000,
-                icon: (
-                  <i
-                    className="bi bi-check-circle-fill"
-                    style={{ color: 'white', fontSize: '1.2rem' }}
-                  />
-                ),
-                style: {
-                  marginRight: '16px',
-                  marginBottom: '16px',
-                },
-                // 可以為不同類型的 toast 設置不同樣式
-                success: {
+          <CartProvider>
+            <OrderCouponProvider>
+              {isHomePage ? (
+                // 若為首頁，直接渲染 Component，不使用 DefaultLayout
+                <Component {...pageProps} />
+              ) : (
+                // 其他頁面則使用 DefaultLayout
+                getLayout(<Component {...pageProps} />)
+              )}
+              <Toaster
+                position="bottom-right"
+                toastOptions={{
+                  duration: 3000,
+                  icon: (
+                    <i
+                      className="bi bi-check-circle-fill"
+                      style={{ color: 'white', fontSize: '1.2rem' }}
+                    />
+                  ),
                   style: {
-                    background: '#716657', // 成功提示的背景色
-                    color: 'white',
+                    marginRight: '16px',
+                    marginBottom: '16px',
                   },
-                },
-                error: {
-                  style: {
-                    background: '#EF4444', // 錯誤提示的背景色
-                    color: 'white',
+                  // 可以為不同類型的 toast 設置不同樣式
+                  success: {
+                    style: {
+                      background: '#716657', // 成功提示的背景色
+                      color: 'white',
+                    },
                   },
-                },
-              }}
-            />
-          </OrderCouponProvider>
+                  error: {
+                    style: {
+                      background: '#EF4444', // 錯誤提示的背景色
+                      color: 'white',
+                    },
+                  },
+                }}
+              />
+            </OrderCouponProvider>
+          </CartProvider>
         </BreadcrumbProvider>
       </LoaderProvider>
     </AuthProvider>

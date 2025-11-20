@@ -1,8 +1,9 @@
 // components/blog/common/user-blog-section/action-button.js
 
 import React from 'react'
-import { AiFillBookmark, AiFillEdit } from 'react-icons/ai'
+import { AiFillEdit } from 'react-icons/ai'
 import { IoNewspaperSharp } from 'react-icons/io5'
+import { BsBookmarkFill } from 'react-icons/bs'
 import styles from './action-button.module.scss'
 
 const ActionButton = ({ label, onClick }) => {
@@ -10,7 +11,7 @@ const ActionButton = ({ label, onClick }) => {
 
   switch (label) {
     case '我的收藏':
-      icon = <AiFillBookmark />
+      icon = <BsBookmarkFill />
       break
     case '我的部落格':
       icon = <IoNewspaperSharp />

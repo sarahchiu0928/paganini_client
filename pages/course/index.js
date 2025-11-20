@@ -47,7 +47,8 @@ const CourseList = () => {
       startIndex + ITEMS_PER_PAGE
     )
     setPaginatedData(paginated)
-  }, [data, selectedType, selectedOption, currentPage, sortContent])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [data, selectedType, selectedOption, currentPage])
 
   // 處理篩選
   const filterByType = (data, type) => {

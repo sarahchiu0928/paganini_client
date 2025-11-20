@@ -4,11 +4,12 @@ import { useRouter } from 'next/router'
 import Link from 'next/link'
 import { useCart } from '@/hooks/use-cart-state'
 import Image from 'next/image'
+import dynamic from 'next/dynamic'
 
 // 商品範例
 import products from '@/data/product/Product.json'
 
-export default function ProductList() {
+function ProductList() {
   // 跳轉使用
   const router = useRouter()
   // 對話盒使用
@@ -108,3 +109,6 @@ export default function ProductList() {
     </>
   )
 }
+
+// 使用動態導入避免 SSR 問題
+export default dynamic(() => Promise.resolve(ProductList), { ssr: false })
