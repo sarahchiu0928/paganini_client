@@ -5,7 +5,7 @@ import BS5Pagination from '@/components/common/bs5-pagination'
 
 export default function SwrList() {
   const [pageNow, setPageNow] = useState(1)
-  const [perPage, setPerPage] = useState(9)
+  const [perPage] = useState(9)
 
   // page=1&name_like=e&brand_ids=1,2&cat_ids=4,5,6,7,8&size_ids=1,2&tag_ids=3,4&color_ids=1,2&sort=id&order=asc&perpage=10&price_gte=1500&price_lte=10000
   const searchCriteria = {

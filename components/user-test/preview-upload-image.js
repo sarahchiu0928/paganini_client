@@ -50,6 +50,7 @@ export default function PreviewUploadImage({
     <div className="image-upload">
       <label htmlFor="file-input">
         <span className="visually-hidden">上傳圖片</span>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src={showImg()} alt="預覽圖片" width="200" height="200" />
       </label>
       <input

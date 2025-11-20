@@ -316,7 +316,10 @@ function TabContent1() {
     <div className="">
       <div className="row align-items-center m-1 gap-1">
         <div className="col-md-2">
-          <label htmlFor="start-date-ongoing" className="col-form-label fontDarkBrown web-16px-B">
+          <label
+            htmlFor="start-date-ongoing"
+            className="col-form-label fontDarkBrown web-16px-B"
+          >
             訂購日期
           </label>
         </div>
@@ -443,7 +446,10 @@ function TabContent2() {
     <div className="">
       <div className="row align-items-center m-1 gap-1">
         <div className="col-md-2">
-          <label htmlFor="start-date-history" className="col-form-label fontDarkBrown web-16px-B">
+          <label
+            htmlFor="start-date-history"
+            className="col-form-label fontDarkBrown web-16px-B"
+          >
             訂購日期
           </label>
         </div>

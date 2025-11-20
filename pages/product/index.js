@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
-import { Offcanvas, Button } from 'react-bootstrap'
 import ProductCard from '@/components/product/product-card'
 import ProductFilter from '@/components/product/product-filter'
 import styles from '@/styles/product-styles/list.module.scss'
@@ -68,6 +67,7 @@ export default function List() {
     selectedSortOption,
     minPrice,
     maxPrice,
+    isPriceInitialized,
   ])
 
   useEffect(() => {
@@ -96,7 +96,7 @@ export default function List() {
       }
     }
     fetchCategoriesAndBrands()
-  }, [])
+  }, [isPriceInitialized])
 
   const handleSearch = (input) => {
     setSearchTerm(input) // 更新搜尋條件
@@ -114,32 +114,32 @@ export default function List() {
     setTypingTimeout(timeout)
 
     return () => clearTimeout(timeout)
-  }, [searchInput])
+  }, [searchInput, typingTimeout])
 
-  // 排序函數
-  const sortProducts = (productsToSort) => {
-    let sorted = [...productsToSort]
-    if (selectedSortOption === 'priceAsc') {
-      sorted.sort((a, b) => {
-        const priceA = a.discount_price || a.price
-        const priceB = b.discount_price || b.price
-        return priceA - priceB
-      })
-    } else if (selectedSortOption === 'priceDesc') {
-      sorted.sort((a, b) => {
-        const priceA = a.discount_price || a.price
-        const priceB = b.discount_price || b.price
-        return priceB - priceA
-      })
-    } else if (selectedSortOption === 'oldest') {
-      // 上架時間較早 (id由小到大)
-      sorted.sort((a, b) => a.id - b.id)
-    } else if (selectedSortOption === 'newest') {
-      // 上架時間較晚 (id由大到小)
-      sorted.sort((a, b) => b.id - a.id)
-    }
-    setProducts(sorted)
-  }
+  // 排序函數（未使用，保留以備將來使用）
+  // const sortProducts = (productsToSort) => {
+  //   let sorted = [...productsToSort]
+  //   if (selectedSortOption === 'priceAsc') {
+  //     sorted.sort((a, b) => {
+  //       const priceA = a.discount_price || a.price
+  //       const priceB = b.discount_price || b.price
+  //       return priceA - priceB
+  //     })
+  //   } else if (selectedSortOption === 'priceDesc') {
+  //     sorted.sort((a, b) => {
+  //       const priceA = a.discount_price || a.price
+  //       const priceB = b.discount_price || b.price
+  //       return priceB - priceA
+  //     })
+  //   } else if (selectedSortOption === 'oldest') {
+  //     // 上架時間較早 (id由小到大)
+  //     sorted.sort((a, b) => a.id - b.id)
+  //   } else if (selectedSortOption === 'newest') {
+  //     // 上架時間較晚 (id由大到小)
+  //     sorted.sort((a, b) => b.id - a.id)
+  //   }
+  //   setProducts(sorted)
+  // }
 
   const handlePageChange = (page) => {
     setCurrentPage(page)
@@ -150,21 +150,21 @@ export default function List() {
     setCurrentPage(1)
   }, [selectedCategory, selectedBrand, searchTerm, selectedSortOption])
 
-  // 修改處理篩選條件變化的函數
-  const handleCategoryChange = (category) => {
-    setSelectedCategory(category)
-    setCurrentPage(1) // 重置頁數
-  }
+  // 修改處理篩選條件變化的函數（未使用，保留以備將來使用）
+  // const handleCategoryChange = (category) => {
+  //   setSelectedCategory(category)
+  //   setCurrentPage(1) // 重置頁數
+  // }
 
-  const handleBrandChange = (brand) => {
-    setSelectedBrand(brand)
-    setCurrentPage(1) // 重置頁數
-  }
+  // const handleBrandChange = (brand) => {
+  //   setSelectedBrand(brand)
+  //   setCurrentPage(1) // 重置頁數
+  // }
 
-  const handleSearchChange = (search) => {
-    setSearchTerm(search)
-    setCurrentPage(1) // 重置頁數
-  }
+  // const handleSearchChange = (search) => {
+  //   setSearchTerm(search)
+  //   setCurrentPage(1) // 重置頁數
+  // }
 
   const handleSortChange = (option) => {
     setSelectedSortOption(option)
@@ -172,17 +172,17 @@ export default function List() {
     // 重置頁數
   }
 
-  const handleMinPriceChange = (value) => {
-    const newMinPrice = parseInt(value) || 0
-    setMinPrice(newMinPrice)
-    setCurrentPage(1)
-  }
+  // const handleMinPriceChange = (value) => {
+  //   const newMinPrice = parseInt(value) || 0
+  //   setMinPrice(newMinPrice)
+  //   setCurrentPage(1)
+  // }
 
-  const handleMaxPriceChange = (value) => {
-    const newMaxPrice = parseInt(value) || 1000000
-    setMaxPrice(newMaxPrice)
-    setCurrentPage(1)
-  }
+  // const handleMaxPriceChange = (value) => {
+  //   const newMaxPrice = parseInt(value) || 1000000
+  //   setMaxPrice(newMaxPrice)
+  //   setCurrentPage(1)
+  // }
 
   const [showOffcanvas, setShowOffcanvas] = useState(false)
 

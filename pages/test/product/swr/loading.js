@@ -6,7 +6,7 @@ import BS5Pagination from '@/components/common/bs5-pagination'
 
 export default function SwrList() {
   const [pageNow, setPageNow] = useState(1)
-  const [perPage, setPerPage] = useState(9)
+  const [perPage] = useState(9)
 
   // 手動控制載入動畫
   const [loading, setLoading] = useState(true)

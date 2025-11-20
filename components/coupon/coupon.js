@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import Swal from 'sweetalert2' // 導入 SweetAlert2
 import styles from './coupon.module.scss'
 import { useAuth } from '@/hooks/use-auth'
@@ -10,6 +10,8 @@ const Coupon = ({ coupons, onCouponClaimed }) => {
 
   // 關於優惠券的 Modal
   const [selectedCoupon, setSelectedCoupon] = useState(null)
+  // eslint-disable-next-line no-unused-vars
+  const [couponOptions, setCouponOptions] = useState([])
 
   const showModal = (coupon) => {
     setSelectedCoupon(coupon)

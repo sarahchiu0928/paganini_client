@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 import ProductLikeIcon from '@/components/product-like/like-icon'
 import { apiBaseUrl } from '@/configs'
 
-export default function Recommend({ product_id }) {
+export default function Recommend() {
   const router = useRouter()
   const [recommendProducts, setRecommendProducts] = useState([])
   const [hoveredProductId, setHoveredProductId] = useState(null)

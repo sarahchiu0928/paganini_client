@@ -87,17 +87,26 @@ export default function Page1() {
                 </Link>
               </li>
               <li className={`nav-item mb-4 h6Bold ${styles.navHover} `}>
-                <Link href="/blog" className={`${styles.navLink} fontDarkBrown`}>
+                <Link
+                  href="/blog"
+                  className={`${styles.navLink} fontDarkBrown`}
+                >
                   部落格 BLOG
                 </Link>
               </li>
               <li className={`nav-item mb-4 h6Bold ${styles.navHover} `}>
-                <Link href="/coupon" className={`${styles.navLink} fontDarkBrown`}>
+                <Link
+                  href="/coupon"
+                  className={`${styles.navLink} fontDarkBrown`}
+                >
                   優惠券 COUPON
                 </Link>
               </li>
               <li className={`nav-item h6Bold ${styles.navHover} `}>
-                <Link href="/shop" className={`${styles.navLink} fontDarkBrown`}>
+                <Link
+                  href="/shop"
+                  className={`${styles.navLink} fontDarkBrown`}
+                >
                   門市據點 LOCATIONS
                 </Link>
               </li>

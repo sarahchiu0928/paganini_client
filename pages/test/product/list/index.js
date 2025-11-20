@@ -5,7 +5,7 @@ import ProductCard from '@/components/product-test/product-card'
 
 export default function List() {
   const [pageNow, setPageNow] = useState(1) // 目前頁數
-  const [perPage, setPerPage] = useState(9) // 每頁幾筆
+  const [perPage] = useState(9) // 每頁幾筆
 
   // 從伺服器取得的總筆數, 總頁數, 商品資料
   const [total, setTotal] = useState(0)

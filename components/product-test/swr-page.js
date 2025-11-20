@@ -5,7 +5,6 @@ export default function SwrPage({
   searchCriteria = {},
   pageNow = 1,
   perPage = 10,
-  loading = true,
 }) {
   const { products, error, isLoading } = useProduct(
     searchCriteria,

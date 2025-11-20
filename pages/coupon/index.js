@@ -10,7 +10,6 @@ const CouponPage = () => {
   const [data, setData] = useState([])
   const [claimedCoupons, setClaimedCoupons] = useState([])
   const [couponCode, setCouponCode] = useState('')
-  const router = useRouter()
 
   // 確認是否登入
   const { auth } = useAuth()
@@ -61,7 +60,7 @@ const CouponPage = () => {
     fetchClaimedCoupons()
   }, [])
 
-  useEffect(() => {}, [data, claimedCoupons])
+  // useEffect(() => {}, [data, claimedCoupons]) // 空的 useEffect，已移除
 
   // 過濾 object 欄位為 1 的優惠券
   // 把 claimedCoupons 的 coupon_id 收集到一個 Set 中

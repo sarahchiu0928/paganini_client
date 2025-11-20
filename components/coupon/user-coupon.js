@@ -16,10 +16,11 @@ const Coupon = ({ coupons }) => {
   return (
     <>
       {coupons.map((coupon, index) => (
-        <div key={index} className={`col-md-6 fontDarkBrown ${styles['coupon']}`}>
-          <div
-            className={`${styles['coupon-item']}  position-relative `}
-          >
+        <div
+          key={index}
+          className={`col-md-6 fontDarkBrown ${styles['coupon']}`}
+        >
+          <div className={`${styles['coupon-item']}  position-relative `}>
             <div className={styles['coupon-left']}>
               <h6 className={`h6Bold ${styles['coupon-title']}`}>
                 {coupon.name}

@@ -23,7 +23,7 @@ export default function ProductDetailRight({
   const [selectedStock, setSelectedStock] = useState(null)
 
   // 購物車數量利用hook儲存
-  const { totalQuantity, setTotalQuantity } = useOrderCoupon()
+  const { setTotalQuantity } = useOrderCoupon()
 
   // 使用 useMemo 確保 parsedSizes 只在 sizes 改變時重新計算
   const parsedSizes = useMemo(() => {

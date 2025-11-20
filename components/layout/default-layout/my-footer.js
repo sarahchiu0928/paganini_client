@@ -32,12 +32,18 @@ const DefaultFooter = () => (
               </Link>
             </li>
             <li className="nav-item mb-3">
-              <Link href="/course" className="nav-link p-0 text-white text-center">
+              <Link
+                href="/course"
+                className="nav-link p-0 text-white text-center"
+              >
                 專業課程報名
               </Link>
             </li>
             <li className="nav-item mb-3">
-              <Link href="/blog" className="nav-link p-0 text-white text-center">
+              <Link
+                href="/blog"
+                className="nav-link p-0 text-white text-center"
+              >
                 部落格
               </Link>
             </li>
@@ -52,7 +58,10 @@ const DefaultFooter = () => (
               </Link>
             </li>
             <li className="nav-item mb-3">
-              <Link href="/shop" className="text-center nav-link p-0 text-white">
+              <Link
+                href="/shop"
+                className="text-center nav-link p-0 text-white"
+              >
                 門市資訊
               </Link>
             </li>

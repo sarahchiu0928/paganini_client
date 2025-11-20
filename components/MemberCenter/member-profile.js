@@ -36,7 +36,9 @@ export default function MemberProfileForm({
               <div className="row">
                 {/* 會員帳號 */}
                 <div className="col-md-6 mb-3">
-                  <label htmlFor="account" className={` fontDarkBrown`}>會員帳號</label>
+                  <label htmlFor="account" className={` fontDarkBrown`}>
+                    會員帳號
+                  </label>
                   <div className={`input-group ${styles.customInputGroup}`}>
                     <span
                       className={`input-group-text ${styles.inputGroupText}`}
@@ -53,7 +55,10 @@ export default function MemberProfileForm({
 
                 {/* 會員姓名 */}
                 <div className="col-md-6 mb-3">
-                  <label htmlFor="member_name" className={`fontDarkBrown ${styles.label}`}>
+                  <label
+                    htmlFor="member_name"
+                    className={`fontDarkBrown ${styles.label}`}
+                  >
                     會員姓名
                   </label>
                   <div className={`input-group ${styles.customInputGroup}`}>
@@ -83,7 +88,10 @@ export default function MemberProfileForm({
               <div className="row">
                 {/* 電子郵件 */}
                 <div className="col-md-6 mb-3">
-                  <label htmlFor="email" className={`fontDarkBrown ${styles.label}`}>
+                  <label
+                    htmlFor="email"
+                    className={`fontDarkBrown ${styles.label}`}
+                  >
                     電子郵件
                   </label>
                   <div className={`input-group ${styles.customInputGroup}`}>
@@ -111,7 +119,10 @@ export default function MemberProfileForm({
 
                 {/* 性別 */}
                 <div className="col-md-6 mb-3">
-                  <label htmlFor="gender" className={`fontDarkBrown ${styles.label}`}>
+                  <label
+                    htmlFor="gender"
+                    className={`fontDarkBrown ${styles.label}`}
+                  >
                     性別
                   </label>
                   <div className={`input-group ${styles.customInputGroup}`}>
@@ -144,7 +155,10 @@ export default function MemberProfileForm({
               <div className="row">
                 {/* 會員生日 */}
                 <div className="col-md-6 mb-3">
-                  <label htmlFor="birthdate" className={`fontDarkBrown ${styles.label}`}>
+                  <label
+                    htmlFor="birthdate"
+                    className={`fontDarkBrown ${styles.label}`}
+                  >
                     會員生日
                   </label>
                   <div className={`input-group ${styles.customInputGroup}`}>
@@ -172,7 +186,10 @@ export default function MemberProfileForm({
 
                 {/* 聯絡電話 */}
                 <div className="col-md-6 mb-3">
-                  <label htmlFor="phone" className={`fontDarkBrown ${styles.label}`}>
+                  <label
+                    htmlFor="phone"
+                    className={`fontDarkBrown ${styles.label}`}
+                  >
                     聯絡電話
                   </label>
                   <div className={`input-group ${styles.customInputGroup}`}>
@@ -201,7 +218,10 @@ export default function MemberProfileForm({
 
               <div className="mb-5">
                 {/* 會員寄送地址 */}
-                <label htmlFor="address" className={`fontDarkBrown ${styles.label}`}>
+                <label
+                  htmlFor="address"
+                  className={`fontDarkBrown ${styles.label}`}
+                >
                   會員寄送地址
                 </label>
                 <div className={`input-group ${styles.customInputGroup}`}>

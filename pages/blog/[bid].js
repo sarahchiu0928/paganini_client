@@ -1,19 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import styles from './[bid].module.scss' // 確認文件名和路徑
-import NextBreadCrumb from '@/components/common/next-breadcrumb'
-import Pagination from '@/components/common/bs5-pagination'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUser, faBookmark } from '@fortawesome/free-solid-svg-icons'
 import Poster from '@/components/blog/common/poster/poster'
 import { useNameAsBreadcrumb } from '@/hooks/use-name-as-breadcrumb' // 導入麵包屑名稱傳遞用的 hook
 
-import {
-  FaHeart,
-  FaRegComment,
-  FaChevronLeft,
-  FaChevronRight,
-} from 'react-icons/fa'
+import { FaChevronLeft, FaChevronRight } from 'react-icons/fa'
 import { apiBaseUrl } from '@/configs'
 
 const API_URL = `${apiBaseUrl}/blog`
@@ -76,7 +67,6 @@ const Blog = () => {
     displayTime,
     author_name, // 從後端資料中提取 author_name
     category_name,
-    cover_img_url,
   } = blogPost
 
   return (

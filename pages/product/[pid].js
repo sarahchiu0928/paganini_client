@@ -10,7 +10,6 @@ import { apiBaseUrl } from '@/configs'
 
 export default function Detail() {
   const router = useRouter()
-  const { pid } = router.query
 
   // 引用麵包屑名稱 hook 變數
   const { setSubTitle } = useNameAsBreadcrumb()
@@ -59,7 +58,7 @@ export default function Detail() {
     if (product.product_name) {
       setSubTitle(product.product_name)
     }
-  }, [product.product_name])
+  }, [product.product_name, setSubTitle])
 
   useEffect(() => {
     const handleResize = () => {

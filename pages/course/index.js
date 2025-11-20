@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import CourseCard from '@/components/course/course-card'
 import SortDropdown from '@/components/course/sort-dropdown'
 import TypeDropdown from '@/components/course/type-dropdown'
@@ -47,7 +47,7 @@ const CourseList = () => {
       startIndex + ITEMS_PER_PAGE
     )
     setPaginatedData(paginated)
-  }, [data, selectedType, selectedOption, currentPage])
+  }, [data, selectedType, selectedOption, currentPage, sortContent])
 
   // 處理篩選
   const filterByType = (data, type) => {
@@ -57,33 +57,36 @@ const CourseList = () => {
   }
 
   // 處理排序
-  const sortContent = (data) => {
-    let sorted = [...data]
-    switch (selectedOption) {
-      case '熱門課程':
-        sorted.sort(
-          (a, b) =>
-            b.click_count - a.click_count ||
-            new Date(b.course_create_day) - new Date(a.course_create_day)
-        )
-        break
-      case '最新課程':
-        sorted.sort(
-          (a, b) =>
-            new Date(b.course_create_day) - new Date(a.course_create_day)
-        )
-        break
-      case '價格由高到低':
-        sorted.sort((a, b) => b.course_price - a.course_price)
-        break
-      case '價格由低到高':
-        sorted.sort((a, b) => a.course_price - b.course_price)
-        break
-      default:
-        break
-    }
-    return sorted
-  }
+  const sortContent = useCallback(
+    (data) => {
+      let sorted = [...data]
+      switch (selectedOption) {
+        case '熱門課程':
+          sorted.sort(
+            (a, b) =>
+              b.click_count - a.click_count ||
+              new Date(b.course_create_day) - new Date(a.course_create_day)
+          )
+          break
+        case '最新課程':
+          sorted.sort(
+            (a, b) =>
+              new Date(b.course_create_day) - new Date(a.course_create_day)
+          )
+          break
+        case '價格由高到低':
+          sorted.sort((a, b) => b.course_price - a.course_price)
+          break
+        case '價格由低到高':
+          sorted.sort((a, b) => a.course_price - b.course_price)
+          break
+        default:
+          break
+      }
+      return sorted
+    },
+    [selectedOption]
+  )
 
   // 計算每種類型的總數量
   const calculateTypeCounts = (data) => {

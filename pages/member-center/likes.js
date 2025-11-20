@@ -226,11 +226,6 @@ function Courses() {
     fetchFavorites()
   }, [])
 
-  const handleCardClick = (id) => {
-    // 點擊收藏商品後導向商品詳細頁
-    router.push(`/course/${id}`)
-  }
-
   const handleRemoveFav = async (cid) => {
     const result = await Swal.fire({
       title: '確定要移除收藏嗎？',

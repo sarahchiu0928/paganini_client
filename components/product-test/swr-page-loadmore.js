@@ -14,7 +14,7 @@ export default function PageLoadMore() {
     price_lte: 10000,
   }
 
-  const [perPage, setPerPage] = useState(5)
+  const [perPage] = useState(5)
 
   const { data, size, isLoading, mutate, error, setSize, isValidating } =
     useProductMore(searchCriteria, 5)

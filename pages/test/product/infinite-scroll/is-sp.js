@@ -8,7 +8,7 @@ export default function ListInfiniteScrollP() {
   // 1. 此設定會影響到每頁呈現的商品數量與伺服器回傳的次數，請勿設太小，最好是滿2-3頁的數量一次載入
   // 2. 需要給最大限制數量，否則會造成伺服器負擔太大。應以使用者會看的數量為限制(約200~500)。
   // 最少要設定 3 筆，不能設太大，因為搜尋後少於3筆會無資料
-  const [perPage, setPerPage] = useState(3) // 每頁幾筆
+  const [perPage] = useState(3) // 每頁幾筆
 
   // 搜尋條件
   // page=1&name_like=e&brand_ids=1,2&cat_ids=4,5,6,7,8&size_ids=1,2&tag_ids=3,4&color_ids=1,2&sort=id&order=asc&perpage=10&price_gte=1500&price_lte=10000

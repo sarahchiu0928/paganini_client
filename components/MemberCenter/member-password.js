@@ -101,7 +101,9 @@ export default function PasswordChangeForm() {
       <form onSubmit={handleSaveNewPassword}>
         {/* 當前密碼 */}
         <div className="mb-3 mt-3">
-          <label htmlFor="current-password" className="form-label">當前密碼</label>
+          <label htmlFor="current-password" className="form-label">
+            當前密碼
+          </label>
           <input
             type="password"
             id="current-password"
@@ -123,7 +125,9 @@ export default function PasswordChangeForm() {
 
         {/* 新密碼 */}
         <div className="mb-3">
-          <label htmlFor="new-password" className="form-label">新密碼</label>
+          <label htmlFor="new-password" className="form-label">
+            新密碼
+          </label>
           <input
             type="password"
             id="new-password"
@@ -145,7 +149,9 @@ export default function PasswordChangeForm() {
 
         {/* 確認新密碼 */}
         <div className="mb-3">
-          <label htmlFor="confirm-password" className="form-label">確認新密碼</label>
+          <label htmlFor="confirm-password" className="form-label">
+            確認新密碼
+          </label>
           <input
             type="password"
             id="confirm-password"

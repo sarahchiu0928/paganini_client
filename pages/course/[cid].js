@@ -6,7 +6,6 @@ import { useNameAsBreadcrumb } from '@/hooks/use-name-as-breadcrumb' // 導入�
 import styles from '@/styles/course-cid.module.scss'
 import CourseLike from '@/components/course-like/like-icon'
 import Image from 'next/image'
-import CourseCard from '@/components/course/course-card'
 import { apiBaseUrl } from '@/configs'
 
 const Course = () => {
@@ -16,8 +15,6 @@ const Course = () => {
   const [topCourse, setTopCourse] = useState([])
   const [relatedCourses, setRelatedCourses] = useState([])
   const courseGridRef = useRef(null)
-  const [arrowPosition, setArrowPosition] = useState(0)
-  const arrowWidth = 40 // 假設箭頭按鈕的寬度是 40px
   const [showArrows, setShowArrows] = useState(false)
 
   // 當卡片點擊時，導向該課程細節頁

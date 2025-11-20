@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import styles from './register.module.scss'
-import Link from 'next/link'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faUser,
@@ -93,6 +92,7 @@ export default function RegisterForm() {
     setErrors(newErrors)
     if (hasErrors) return
 
+    // eslint-disable-next-line no-unused-vars
     const { confirmPassword, agree, ...newUser } = user
     await register(newUser)
   }

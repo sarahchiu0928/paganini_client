@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import styles from '@/styles/product-styles/ProductCard.module.scss'
 import Image from 'next/image'
 import ProductLikeIcon from '@/components/product-like/like-icon'

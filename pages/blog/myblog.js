@@ -119,7 +119,7 @@ export default function List() {
       }
     }
     fetchBlogs()
-  }, [userID, order, currentPage, selectedCategory, search]) // 每当 selectedCategory、order、currentPage 或 search 改变时重新加载
+  }, [userID, order, currentPage, selectedCategory, search, blogsPerPage]) // 每当 selectedCategory、order、currentPage 或 search 改变时重新加载
 
   // 处理排序变更
   const handleSortChange = (newOrder) => {

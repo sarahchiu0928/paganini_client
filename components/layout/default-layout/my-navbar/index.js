@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
@@ -6,11 +5,6 @@ import { IoPerson } from 'react-icons/io5'
 import { IoMdCart } from 'react-icons/io'
 import { BsList } from 'react-icons/bs'
 import Swal from 'sweetalert2'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {
-  faSignInAlt,
-  faRightFromBracket,
-} from '@fortawesome/free-solid-svg-icons'
 import Button from 'react-bootstrap/Button'
 import Offcanvas from 'react-bootstrap/Offcanvas'
 import style from './position.module.scss'
@@ -85,7 +79,8 @@ export default function MyNavbar() {
     logout()
     router.push('/') // 登出後重定向到首頁
   }
-  const handleNavigate = (event) => {
+  // eslint-disable-next-line no-unused-vars
+  const handleNavigate = () => {
     handleClose() // 關閉 Offcanvas
   }
   return (

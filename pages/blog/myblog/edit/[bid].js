@@ -4,7 +4,6 @@ import styles from '@/pages/blog/write.module.scss'
 import { FaImage } from 'react-icons/fa6'
 import { useRouter } from 'next/router'
 import axios from 'axios'
-import { useAuth } from '@/hooks/use-auth'
 import Swal from 'sweetalert2' // 引入 SweetAlert2
 import { useNameAsBreadcrumb } from '@/hooks/use-name-as-breadcrumb' // 導入麵包屑名稱傳遞用的 hook
 import { apiBaseUrl, blogBaseUrl } from '@/configs'
