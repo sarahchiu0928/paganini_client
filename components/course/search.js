@@ -27,6 +27,14 @@ const SearchBar = ({
         className={`btn input-group-text ${styles['btn-search']}`}
         id="basic-addon2"
         onClick={onSearchClick}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault()
+            onSearchClick()
+          }
+        }}
+        role="button"
+        tabIndex={0}
       >
         <IoSearchSharp size={20} />
       </span>

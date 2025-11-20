@@ -17,7 +17,6 @@ import { AuthProvider } from '@/hooks/use-auth'
 import { BreadcrumbProvider } from '@/hooks/use-name-as-breadcrumb'
 
 // 載入購物車context
-import { CartProvider } from '@/hooks/use-cart-state'
 import { OrderCouponProvider } from '@/hooks/order-coupon'
 
 import DefaultLayout from '@/components/layout/default-layout'

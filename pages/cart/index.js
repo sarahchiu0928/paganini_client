@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react'
 import Swal from 'sweetalert2'
 import styles from './cart.module.scss'
-import ProductDetails from 'components/cart/productDetail'
+import ProductDetails from '@/components/cart/productDetail.js'
 import Modal from 'react-bootstrap/Modal' // 使用 react-bootstrap 的 Modal 元件
 import Button from 'react-bootstrap/Button' // 使用 react-bootstrap 的 Button 元件
 import { useOrderCoupon } from '@/hooks/order-coupon'
@@ -24,7 +24,6 @@ export default function CartIndex() {
 
   // 將訂單詳情中資料利用hook儲存
   const {
-    coupon_id,
     setCoupon_id,
     totalQuantity,
     setTotalQuantity,
@@ -227,7 +226,7 @@ export default function CartIndex() {
     setTotalQuantity(newTotalQuantity)
     setTotalPrice(newTotalPrice)
     setDiscountedPrice(newTotalPrice) // 初始化為未折扣的總價
-  }, [cartProducts])
+  }, [cartProducts, setDiscountedPrice, setTotalPrice, setTotalQuantity])
 
   // 更新商品數量
   const updateItemQuantity = (card_id, newQuantity) => {
@@ -490,6 +489,14 @@ export default function CartIndex() {
               <div
                 className={`${styles.btn} ${styles.btnLike} web-16px-md`}
                 onClick={gotoDetails}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault()
+                    gotoDetails()
+                  }
+                }}
+                role="button"
+                tabIndex={0}
               >
                 前往結帳
               </div>

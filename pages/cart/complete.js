@@ -1,9 +1,10 @@
-import React, { useRef, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import Swal from 'sweetalert2'
 import styles from './cart.module.scss'
 import Router from 'next/router'
 import { apiBaseUrl } from '@/configs'
 
-function complete() {
+function Complete() {
   // ----- API 請求 -----
   // 設定讀取資料內容
   const [lastOrder, setLastOrder] = useState('')
@@ -97,4 +98,4 @@ function complete() {
   )
 }
 
-export default complete
+export default Complete

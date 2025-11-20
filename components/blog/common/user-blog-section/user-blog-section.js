@@ -50,7 +50,22 @@ const UserBlog = ({ isUserLoggedIn }) => {
   return (
     <div className={styles.userBlog}>
       {/* 这里将 FilterTitle 和箭头合并成一个可点击的区域 */}
-      <div className={styles.header} onClick={isMobile ? toggleCollapse : null}>
+      <div
+        className={styles.header}
+        onClick={isMobile ? toggleCollapse : null}
+        onKeyDown={
+          isMobile
+            ? (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault()
+                  toggleCollapse()
+                }
+              }
+            : null
+        }
+        role={isMobile ? 'button' : undefined}
+        tabIndex={isMobile ? 0 : undefined}
+      >
         <h3 className={styles.filterTitle}>個人</h3>
         {/* 根据收合状态显示不同的箭头图标 */}
         {isMobile && (

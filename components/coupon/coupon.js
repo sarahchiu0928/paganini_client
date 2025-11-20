@@ -122,11 +122,18 @@ const Coupon = ({ coupons, onCouponClaimed }) => {
   return (
     <>
       {coupons.map((coupon, index) => (
-        <div className="col-xxl-4 col-lg-6 col-md-6 fontDarkBrown">
+        <div key={index} className="col-xxl-4 col-lg-6 col-md-6 fontDarkBrown">
           <div
-            key={index}
             className={`${styles['coupon-item']} d-flex justify-content-between position-relative`}
             onClick={() => showModal(coupon)}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault()
+                showModal(coupon)
+              }
+            }}
+            role="button"
+            tabIndex={0}
           >
             <div className={styles['coupon-left']}>
               <h6 className={`h6Bold ${styles['coupon-title']}`}>

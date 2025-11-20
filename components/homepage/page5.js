@@ -1,5 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import styles from './blog.module.scss'
 
 export default function BlogSection() {
@@ -130,9 +131,9 @@ export default function BlogSection() {
           </div>
 
           {/* 更多內容按鈕 */}
-          <a href="/blog" className={`${styles.aboutBtn} btn w-50 mt-md-4`}>
+          <Link href="/blog" className={`${styles.aboutBtn} btn w-50 mt-md-4`}>
             view more
-          </a>
+          </Link>
         </div>
       </div>
     </section>

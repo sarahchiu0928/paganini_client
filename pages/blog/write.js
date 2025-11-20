@@ -60,27 +60,6 @@ const Write = () => {
     ],
   }
 
-  // 插入 YouTube 影片的函數
-  const insertVideo = (url) => {
-    const videoRegex =
-      /(?:https?:\/\/)?(?:www\.)?(?:youtube|youtu|youtube-nocookie)\.(?:com|be)\/(?:[^\/\n\s]+\/\S+|(?:v|e(?:mbed)?)\/(\S+))/
-    const match = url.match(videoRegex)
-
-    if (match && match[1]) {
-      const videoId = match[1]
-      const embedUrl = `https://www.youtube.com/embed/${videoId}`
-      const iframe = `<iframe src="${embedUrl}" width="100%" height="315" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
-      setValue(value + iframe) // 添加 iframe 到編輯器內容中
-    } else {
-      Swal.fire({
-        title: '錯誤',
-        text: '無效的 YouTube 影片 URL！',
-        icon: 'error',
-        confirmButtonText: '確定',
-      })
-    }
-  }
-
   const handleImageChange = (e) => {
     const file = e.target.files[0]
     if (file) {
@@ -242,7 +221,6 @@ const Write = () => {
 
       // Handle server response
       if (response.ok) {
-        const result = await response.json()
         Swal.fire({
           title: '成功',
           text: '文章發布成功！',
@@ -409,9 +387,18 @@ const Write = () => {
               />
               <div
                 onClick={() => imageInputRef.current.click()}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault()
+                    imageInputRef.current.click()
+                  }
+                }}
+                role="button"
+                tabIndex={0}
                 className={styles.uploadArea}
               >
                 {imagePreview ? (
+                  // eslint-disable-next-line @next/next/no-img-element
                   <img src={imagePreview} alt="預覽" />
                 ) : (
                   <span>

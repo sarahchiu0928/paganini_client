@@ -15,12 +15,9 @@ import 'react-quill/dist/quill.bubble.css'
 import 'sweetalert2/dist/sweetalert2.min.css' // 引入 SweetAlert2 CSS
 
 const Edit = () => {
-  const { auth } = useAuth() // 使用 useAuth hook 取得登入用戶資訊
-  const userID = auth.userData.ID // 假設 auth.userData 中有 ID
   const router = useRouter()
   const { bid } = router.query
   const [value, setValue] = useState('') // 文章內容
-  const [category, setCategory] = useState('') // 分類名稱
   const [categoryId, setCategoryId] = useState('') // 文章分類ID
   const [image, setImage] = useState(null) // 當前上傳的圖片
   const [imagePreview, setImagePreview] = useState('') // 圖片預覽
@@ -48,7 +45,6 @@ const Edit = () => {
           const { blog } = response.data
           setTitle(blog.title)
           setValue(blog.content)
-          setCategory(blog.category_name)
           setCategoryId(blog.category_id) // 確保使用 category_id 而非 category_name
           setSelectedCategory(blog.category_name)
 
@@ -73,32 +69,22 @@ const Edit = () => {
     }
   }, [title, setSubTitle])
 
+  const handleDrop = (e) => {
+    e.preventDefault()
+    const file = e.dataTransfer.files[0]
+    if (file && file.type.startsWith('image/')) {
+      handleImageChange({ target: { files: [file] } })
+    }
+  }
+
+  const handleDragOver = (e) => {
+    e.preventDefault()
+  }
+
   // 分類選擇
   const handleCategoryChange = (id, label) => {
     setCategoryId(id) // 更新分類ID
-    setCategory(label) // 保留分類名稱（可選）
     setSelectedCategory(label) // 顯示選中的分類名稱
-  }
-
-  // 插入 YouTube 影片的函數
-  const insertVideo = (url) => {
-    const videoRegex =
-      /(?:https?:\/\/)?(?:www\.)?(?:youtube|youtu|youtube-nocookie)\.(?:com|be)\/(?:[^\/\n\s]+\/\S+|(?:v|e(?:mbed)?)\/(\S+))/
-    const match = url.match(videoRegex)
-
-    if (match && match[1]) {
-      const videoId = match[1]
-      const embedUrl = `https://www.youtube.com/embed/${videoId}`
-      const iframe = `<iframe src="${embedUrl}" width="100%" height="315" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
-      setValue(value + iframe) // 添加 iframe 到編輯器內容中
-    } else {
-      Swal.fire({
-        title: '錯誤',
-        text: '無效的 YouTube 影片 URL！',
-        icon: 'error',
-        confirmButtonText: '確定',
-      })
-    }
   }
 
   // 圖片上傳
@@ -181,16 +167,12 @@ const Edit = () => {
     console.log(value)
 
     try {
-      const response = await axios.put(
-        `${apiBaseUrl}/blog/myblog/edit/${bid}`,
-        formData,
-        {
-          headers: {
-            'Content-Type': 'multipart/form-data',
-          },
-          withCredentials: true,
-        }
-      )
+      await axios.put(`${apiBaseUrl}/blog/myblog/edit/${bid}`, formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+        withCredentials: true,
+      })
 
       // 成功彈出提示
       Swal.fire({
@@ -320,8 +302,8 @@ const Edit = () => {
           {/* 圖片上傳區域 */}
           <div
             className={styles.imageUploadSection}
-            onDrop={(e) => handleDrop(e)} // 處理拖放
-            onDragOver={(e) => handleDragOver(e)} // 防止拖拽文件時的默認行為
+            onDrop={handleDrop} // 處理拖放
+            onDragOver={handleDragOver} // 防止拖拽文件時的默認行為
           >
             <label htmlFor="image">
               <span>*</span>封面
@@ -337,9 +319,18 @@ const Edit = () => {
               />
               <div
                 onClick={() => imageInputRef.current.click()}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault()
+                    imageInputRef.current.click()
+                  }
+                }}
+                role="button"
+                tabIndex={0}
                 className={styles.uploadArea}
               >
                 {imagePreview ? (
+                  // eslint-disable-next-line @next/next/no-img-element
                   <img src={imagePreview} alt="預覽" />
                 ) : (
                   <span>

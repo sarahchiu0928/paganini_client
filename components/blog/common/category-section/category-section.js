@@ -61,7 +61,22 @@ const CategorySection = ({ selectedCategory, onCategoryChange }) => {
 
   return (
     <div className={styles.category}>
-      <div className={styles.header} onClick={isMobile ? toggleCollapse : null}>
+      <div
+        className={styles.header}
+        onClick={isMobile ? toggleCollapse : null}
+        onKeyDown={
+          isMobile
+            ? (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault()
+                  toggleCollapse()
+                }
+              }
+            : null
+        }
+        role={isMobile ? 'button' : undefined}
+        tabIndex={isMobile ? 0 : undefined}
+      >
         <h3 className={styles.filterTitle}>分類</h3>
         {isMobile && (
           <span className={styles.arrowIcon}>

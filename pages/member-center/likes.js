@@ -85,6 +85,14 @@ function Products() {
                   key={product.product_id}
                   className={styles.tabContent}
                   onClick={() => handleCardClick(product.product_id)}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault()
+                      handleCardClick(product.product_id)
+                    }
+                  }}
+                  role="button"
+                  tabIndex={0}
                   style={{ cursor: 'pointer', backgroundColor: '#fff' }}
                 >
                   <Image
@@ -133,6 +141,14 @@ function Products() {
                   key={product.product_id}
                   className={styles.tabContent}
                   onClick={() => handleCardClick(product.product_id)}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault()
+                      handleCardClick(product.product_id)
+                    }
+                  }}
+                  role="button"
+                  tabIndex={0}
                   style={{ cursor: 'pointer', backgroundColor: '#fff' }}
                 >
                   <Image
@@ -296,6 +312,16 @@ function Courses() {
                     e.stopPropagation()
                     window.location.href = 'https://www.surveycake.com/s/vNL0O'
                   }}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault()
+                      e.stopPropagation()
+                      window.location.href =
+                        'https://www.surveycake.com/s/vNL0O'
+                    }
+                  }}
+                  role="button"
+                  tabIndex={0}
                 >
                   立即報名
                 </div>
@@ -336,6 +362,15 @@ function Courses() {
                     e.stopPropagation()
                     handleRemoveFav(course.course_id)
                   }}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault()
+                      e.stopPropagation()
+                      handleRemoveFav(course.course_id)
+                    }
+                  }}
+                  role="button"
+                  tabIndex={0}
                 >
                   移除收藏
                 </div>
@@ -345,6 +380,16 @@ function Courses() {
                     e.stopPropagation()
                     window.location.href = 'https://www.surveycake.com/s/vNL0O'
                   }}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault()
+                      e.stopPropagation()
+                      window.location.href =
+                        'https://www.surveycake.com/s/vNL0O'
+                    }
+                  }}
+                  role="button"
+                  tabIndex={0}
                 >
                   立即報名
                 </div>

@@ -101,7 +101,22 @@ const CategorySection = ({ selectedCategory, onCategoryChange }) => {
   return (
     <div className={styles.category}>
       {/* 在小螢幕設備下顯示收合按鈕 */}
-      <div className={styles.header} onClick={isMobile ? toggleCollapse : null}>
+      <div
+        className={styles.header}
+        onClick={isMobile ? toggleCollapse : null}
+        onKeyDown={
+          isMobile
+            ? (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault()
+                  toggleCollapse()
+                }
+              }
+            : null
+        }
+        role={isMobile ? 'button' : undefined}
+        tabIndex={isMobile ? 0 : undefined}
+      >
         <FilterTitle>分類</FilterTitle>
         {isMobile && (
           <span className={styles.arrowIcon}>

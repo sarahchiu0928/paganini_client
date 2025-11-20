@@ -42,6 +42,14 @@ const CourseCard = ({ course, searchTerm }) => {
         <div
           className={`${styles['course-card']} `}
           onClick={() => handleCardClick(course.id)}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault()
+              handleCardClick(course.id)
+            }
+          }}
+          role="button"
+          tabIndex={0}
           style={{ cursor: 'pointer' }}
         >
           <div className={styles['course-card-inner']}>

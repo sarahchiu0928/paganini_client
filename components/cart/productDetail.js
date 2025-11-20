@@ -1,12 +1,10 @@
 // client/components/cart/productDetail.js
 import React, { useState, useEffect } from 'react'
 import Swal from 'sweetalert2' // 導入 SweetAlert2
-import styles from 'pages/cart/cart.module.scss'
 import { useRouter } from 'next/router'
 import { apiBaseUrl } from '@/configs'
 
 function ProductDetails({
-  card_id,
   product_id,
   productPics,
   product_name,
@@ -20,13 +18,9 @@ function ProductDetails({
   updateCheckedStatus, // 單選時回傳更新值至父元件
   fetchData,
 }) {
-  // 儲存勾選狀態
-  const [isChecked, setIsChecked] = useState(card_checked) // 預設為父元件抓取資料庫的值
-
   // 更新勾選狀態
   const handleCheckChange = (e) => {
     const newChecked = e.target.checked ? 1 : 0
-    setIsChecked(newChecked)
     updateCheckedStatus(product_id, size, newChecked) // 同步至父組件的勾選狀態更新函數
   }
   // 儲存商品數量
@@ -360,13 +354,24 @@ function ProductDetails({
         {/* 圖片和商品數量 */}
         <div className="col-4 col-sm-3">
           {/* 圖片 */}
-          <div className="d-flex justify-content-center mb-3 mb-sm-0">
+          <div
+            className="d-flex justify-content-center mb-3 mb-sm-0"
+            onClick={() => handleCardClick(product_id)}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault()
+                handleCardClick(product_id)
+              }
+            }}
+            role="button"
+            tabIndex={0}
+            style={{ cursor: 'pointer' }}
+          >
             <img
               src={`/product-pics/${brand_name}/${productPics}`}
               alt={product_name}
               className="img-fluid bg-light mb-1"
-              style={{ maxWidth: '80px', cursor: 'pointer' }}
-              onClick={() => handleCardClick(product_id)}
+              style={{ maxWidth: '80px' }}
             />
           </div>
           {/* 商品數量 */}
@@ -397,6 +402,14 @@ function ProductDetails({
         <div
           className="col-6 col-sm-3"
           onClick={() => handleCardClick(product_id)}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault()
+              handleCardClick(product_id)
+            }
+          }}
+          role="button"
+          tabIndex={0}
           style={{ cursor: 'pointer' }}
         >
           <p className="mb-1 fw-bold">{product_name}</p>
@@ -408,6 +421,14 @@ function ProductDetails({
         <div
           className="col-12 col-sm-3"
           onClick={() => handleCardClick(product_id)}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault()
+              handleCardClick(product_id)
+            }
+          }}
+          role="button"
+          tabIndex={0}
           style={{ cursor: 'pointer' }}
         >
           {/* 商品單價 */}

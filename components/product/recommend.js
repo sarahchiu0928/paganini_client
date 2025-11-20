@@ -52,21 +52,32 @@ export default function Recommend({ product_id }) {
           return (
             <div key={product.id} className="col-6">
               <div className={`${styles.recommenCard} card`}>
-                <img
+                <div
                   onMouseEnter={() => setHoveredProductId(product.id)}
                   onMouseLeave={() => setHoveredProductId(null)}
-                  src={
-                    hoveredProductId === product.id && hoverPic
-                      ? `/product-pics/${product.brand_name}/${hoverPic}`
-                      : `/product-pics/${product.brand_name}/${defaultPic}`
-                  }
-                  className={`${styles.recommendCardImg} card-img-top`}
-                  alt={product.product_name}
                   onClick={() => handleCardClick(product.id)}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault()
+                      handleCardClick(product.id)
+                    }
+                  }}
+                  role="button"
+                  tabIndex={0}
                   style={{
                     cursor: 'pointer',
                   }}
-                />
+                >
+                  <img
+                    src={
+                      hoveredProductId === product.id && hoverPic
+                        ? `/product-pics/${product.brand_name}/${hoverPic}`
+                        : `/product-pics/${product.brand_name}/${defaultPic}`
+                    }
+                    className={`${styles.recommendCardImg} card-img-top`}
+                    alt={product.product_name}
+                  />
+                </div>
                 <ProductLikeIcon
                   product_id={product.id}
                   className={styles.recommendFavoriteIconSm}
@@ -76,15 +87,23 @@ export default function Recommend({ product_id }) {
                     className={`${styles.cardText} card-text position-relative`}
                   >
                     <div className={styles.textArea}>
-                      <h5
+                      <div
                         className={`${styles.productName} card-title`}
                         onClick={() => handleCardClick(product.id)}
+                        onKeyDown={(e) => {
+                          if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault()
+                            handleCardClick(product.id)
+                          }
+                        }}
+                        role="button"
+                        tabIndex={0}
                         style={{
                           cursor: 'pointer',
                         }}
                       >
                         {product.product_name}
-                      </h5>
+                      </div>
                       <h6 className={`${styles.brandName} product-model`}>
                         {product.brand_name}
                       </h6>

@@ -154,7 +154,18 @@ export default function FilterOffcanvas({
           {/* 類別篩選 */}
 
           <div className={`${styles.filterCard} mb-0`}>
-            <div className={styles.cardHeader} onClick={toggleCategory}>
+            <div
+              className={styles.cardHeader}
+              onClick={toggleCategory}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault()
+                  toggleCategory()
+                }
+              }}
+              role="button"
+              tabIndex={0}
+            >
               類別
               <span className={styles.toggleIcon}>
                 {isCategoryOpen ? <FaChevronDown /> : <FaChevronUp />}
@@ -189,7 +200,18 @@ export default function FilterOffcanvas({
           </div>
 
           <div className={`${styles.filterCard} mb-0`}>
-            <div className={styles.cardHeader} onClick={togglePrice}>
+            <div
+              className={styles.cardHeader}
+              onClick={togglePrice}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault()
+                  togglePrice()
+                }
+              }}
+              role="button"
+              tabIndex={0}
+            >
               價格區間
               <span className={styles.toggleIcon}>
                 {isPriceOpen ? <FaChevronDown /> : <FaChevronUp />}
@@ -259,7 +281,18 @@ export default function FilterOffcanvas({
             )}
           </div>
           <div className={`${styles.filterCard} mb-0`}>
-            <div className={styles.cardHeader} onClick={toggleBrand}>
+            <div
+              className={styles.cardHeader}
+              onClick={toggleBrand}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault()
+                  toggleBrand()
+                }
+              }}
+              role="button"
+              tabIndex={0}
+            >
               品牌
               <span className={styles.toggleIcon}>
                 {isBrandOpen ? <FaChevronDown /> : <FaChevronUp />}

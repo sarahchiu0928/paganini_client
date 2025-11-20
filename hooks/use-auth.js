@@ -8,6 +8,17 @@ import { apiBaseUrl } from '@/configs'
 const AuthContext = createContext(null)
 AuthContext.displayName = 'AuthContext'
 
+export const initUserData = {
+  ID: 0,
+  member_name: '',
+  email: '',
+  account: '',
+  phone: '',
+  birthdate: '',
+  address: '',
+  gender: '',
+}
+
 export function AuthProvider({ children }) {
   const router = useRouter()
   const MySwal = withReactContent(Swal)

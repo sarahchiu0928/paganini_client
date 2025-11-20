@@ -8,6 +8,12 @@ export function timeout(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms))
 }
 
+export function delay(ms) {
+  return (promise) => {
+    return Promise.all([promise, timeout(ms)])
+  }
+}
+
 export const LoaderProvider = ({
   children,
   close = 1.5,

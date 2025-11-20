@@ -209,6 +209,14 @@ const CourseList = () => {
               <div
                 className={`d-flex justify-content-between ${styles['type']} `}
                 onClick={() => setSelectedType(null)}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault()
+                    setSelectedType(null)
+                  }
+                }}
+                role="button"
+                tabIndex={0}
               >
                 <div className={`${styles['title']}`}>全部</div>
                 <div className={styles['num']}>{data.length}</div>
@@ -220,6 +228,14 @@ const CourseList = () => {
                     styles['type']
                   } ${selectedType === Number(key) ? styles['active'] : ''}`}
                   onClick={() => setSelectedType(Number(key))}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault()
+                      setSelectedType(Number(key))
+                    }
+                  }}
+                  role="button"
+                  tabIndex={0}
                 >
                   <div className={`${styles['title']}`}>{typeNames[key]}</div>
                   <div className={styles['num']}>{typeCounts[key]}</div>

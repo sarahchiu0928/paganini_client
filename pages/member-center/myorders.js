@@ -316,14 +316,14 @@ function TabContent1() {
     <div className="">
       <div className="row align-items-center m-1 gap-1">
         <div className="col-md-2">
-          <label className="col-form-label fontDarkBrown web-16px-B">
+          <label htmlFor="start-date-ongoing" className="col-form-label fontDarkBrown web-16px-B">
             訂購日期
           </label>
         </div>
         <div className="col-md-3">
           <input
             type="date"
-            id="start-date"
+            id="start-date-ongoing"
             className="form-control"
             value={startDate}
             onChange={(e) => setStartDate(e.target.value)}
@@ -333,7 +333,7 @@ function TabContent1() {
         <div className="col-md-3">
           <input
             type="date"
-            id="end-date"
+            id="end-date-ongoing"
             className="form-control"
             value={endDate}
             onChange={(e) => setEndDate(e.target.value)}
@@ -443,14 +443,14 @@ function TabContent2() {
     <div className="">
       <div className="row align-items-center m-1 gap-1">
         <div className="col-md-2">
-          <label className="col-form-label fontDarkBrown web-16px-B">
+          <label htmlFor="start-date-history" className="col-form-label fontDarkBrown web-16px-B">
             訂購日期
           </label>
         </div>
         <div className="col-md-3">
           <input
             type="date"
-            id="start-date"
+            id="start-date-history"
             className="form-control"
             value={startDate}
             onChange={(e) => setStartDate(e.target.value)}
@@ -460,7 +460,7 @@ function TabContent2() {
         <div className="col-md-3">
           <input
             type="date"
-            id="end-date"
+            id="end-date-history"
             className="form-control"
             value={endDate}
             onChange={(e) => setEndDate(e.target.value)}

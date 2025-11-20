@@ -1,20 +1,24 @@
 import { useState, useEffect } from 'react'
 import { apiBaseUrl } from '@/configs'
 
-const [data, setData] = useState([])
+export default function ProductList() {
+  const [, setData] = useState([])
 
-// 呼叫 API 取得資料
-useEffect(() => {
-  const fetchData = async () => {
-    try {
-      const response = await fetch(`${apiBaseUrl}/product`)
-      const result = await response.json()
-      if (result.status === 'success') {
-        setData(result.data.shop)
+  // 呼叫 API 取得資料
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(`${apiBaseUrl}/product`)
+        const result = await response.json()
+        if (result.status === 'success') {
+          setData(result.data.shop)
+        }
+      } catch (error) {
+        console.error('無法取得資料:', error)
       }
-    } catch (error) {
-      console.error('無法取得資料:', error)
     }
-  }
-  fetchData()
-}, [])
+    fetchData()
+  }, [])
+
+  return null
+}

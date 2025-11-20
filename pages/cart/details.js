@@ -1,11 +1,11 @@
-import React, { useRef, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Swal from 'sweetalert2' // 引入 SweetAlert2 用於顯示提示訊息
 import styles from './cart.module.scss'
 import { useRouter } from 'next/router'
 import { useOrderCoupon } from '@/hooks/order-coupon'
 import { apiBaseUrl } from '@/configs'
 
-function details() {
+function Details() {
   const router = useRouter()
 
   const handleReturnToShoppingList = () => {
@@ -17,13 +17,10 @@ function details() {
   // 將訂單詳情中資料利用hook儲存
   const {
     coupon_id,
-    setCoupon_id,
     totalQuantity,
     setTotalQuantity,
     totalPrice,
-    setTotalPrice,
     discountedPrice,
-    setDiscountedPrice,
   } = useOrderCoupon()
 
   // ----- 狀態管理 -----
@@ -61,7 +58,11 @@ function details() {
   const [paymentOption, setPaymentOption] = useState('信用卡')
 
   // 信用卡號的輸入框參考，使用 useRef 管理
-  const inputRefs = Array.from({ length: 4 }, () => useRef(null))
+  const inputRef1 = React.useRef(null)
+  const inputRef2 = React.useRef(null)
+  const inputRef3 = React.useRef(null)
+  const inputRef4 = React.useRef(null)
+  const inputRefs = [inputRef1, inputRef2, inputRef3, inputRef4]
 
   // ----- API 請求 -----
   // 抓取會員資料並更新表單
@@ -496,10 +497,11 @@ function details() {
                 </label>
               </div>
               <div className="mb-2">
-                <label>姓名</label>
+                <label htmlFor="name">姓名</label>
                 <input
                   type="text"
                   className="form-control"
+                  id="name"
                   name="name"
                   value={formFields.name}
                   onChange={handleInputChange}
@@ -509,10 +511,11 @@ function details() {
                 )}
               </div>
               <div className="mb-2">
-                <label>電話</label>
+                <label htmlFor="phone">電話</label>
                 <input
                   type="text"
                   className="form-control"
+                  id="phone"
                   name="phone"
                   value={formFields.phone}
                   onChange={handleInputChange}
@@ -524,10 +527,11 @@ function details() {
               {deliveryOption === '宅配' ? (
                 <div className="row">
                   <div className="col-12">
-                    <label>地址</label>
+                    <label htmlFor="address">地址</label>
                     <input
                       type="text"
                       className="form-control"
+                      id="address"
                       name="address"
                       value={formFields.address}
                       onChange={handleInputChange}
@@ -541,8 +545,9 @@ function details() {
                 <div className="row">
                   {/* 區域選擇 */}
                   <div className="col-12 col-md-3">
-                    <label>區域</label>
+                    <label htmlFor="selectedArea">區域</label>
                     <select
+                      id="selectedArea"
                       className="form-control"
                       onChange={handleAreaChange}
                     >
@@ -560,8 +565,9 @@ function details() {
 
                   {/* 門市選擇 */}
                   <div className="col-12 col-md-5 mt-3 mt-md-0">
-                    <label>門市</label>
+                    <label htmlFor="selectedShop">門市</label>
                     <select
+                      id="selectedShop"
                       className="form-control"
                       value={selectedShop}
                       onChange={handleShopChange}
@@ -585,9 +591,10 @@ function details() {
 
                   {/* 預計取貨日 */}
                   <div className="col-12 col-md-4 mt-3 mt-md-0">
-                    <label>預計取貨日</label>
+                    <label htmlFor="pickupDate">預計取貨日</label>
                     <input
                       type="date"
+                      id="pickupDate"
                       className="form-control"
                       value={pickupDate}
                       onChange={handlePickupDateChange}
@@ -635,7 +642,7 @@ function details() {
                   {/* 信用卡號碼輸入區域 */}
                   <div className="row mb-2">
                     <div className="col-12 col-md-10">
-                      <label>信用卡號碼</label>
+                      <label htmlFor="cardNumber">信用卡號碼</label>
                       <div className="d-flex flex-wrap">
                         {[0, 1, 2, 3].map((index) => (
                           <input
@@ -653,6 +660,7 @@ function details() {
                     </div>
                     <div className="col-12 col-md-2 d-flex align-items-center">
                       {formFields.cardType && (
+                        // eslint-disable-next-line @next/next/no-img-element
                         <img
                           src={
                             formFields.cardType === 'VISA'
@@ -674,10 +682,11 @@ function details() {
                   {/* 有效日期與安全驗證碼 */}
                   <div className="row mb-2">
                     <div className="col-12 col-md-6">
-                      <label>有效日期(MM/YY)</label>
+                      <label htmlFor="expiryDate">有效日期(MM/YY)</label>
                       <input
                         type="text"
                         className="form-control"
+                        id="expiryDate"
                         maxLength="5"
                         name="expiryDate"
                         value={formFields.expiryDate}
@@ -690,10 +699,11 @@ function details() {
                       )}
                     </div>
                     <div className="col-12 col-md-6">
-                      <label>安全驗證碼</label>
+                      <label htmlFor="securityCode">安全驗證碼</label>
                       <input
                         type="text"
                         className="form-control"
+                        id="securityCode"
                         maxLength="3"
                         name="securityCode"
                         value={formFields.securityCode}
@@ -710,10 +720,11 @@ function details() {
                   {/* 持卡人姓名 */}
                   <div className="row">
                     <div className="col-12">
-                      <label>持卡人姓名</label>
+                      <label htmlFor="cardHolder">持卡人姓名</label>
                       <input
                         type="text"
                         className="form-control"
+                        id="cardHolder"
                         name="cardHolder"
                         value={formFields.cardHolder}
                         onChange={handleInputChange}
@@ -753,7 +764,18 @@ function details() {
               <div className="text-end h3Bold">
                 NT${(discountedPrice + deliveryFee).toLocaleString()}
               </div>
-              <div className={`${styles.btn} p-2`} onClick={handleSubmit}>
+              <div
+                className={`${styles.btn} p-2`}
+                onClick={handleSubmit}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault()
+                    handleSubmit()
+                  }
+                }}
+                role="button"
+                tabIndex={0}
+              >
                 確認送出訂單
               </div>
             </div>
@@ -764,4 +786,4 @@ function details() {
   )
 }
 
-export default details
+export default Details

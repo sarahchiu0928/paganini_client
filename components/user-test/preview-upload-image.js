@@ -48,8 +48,9 @@ export default function PreviewUploadImage({
 
   return (
     <div className="image-upload">
-      <label for="file-input">
-        <img src={showImg()} alt="" width="200" height="200" />
+      <label htmlFor="file-input">
+        <span className="visually-hidden">上傳圖片</span>
+        <img src={showImg()} alt="預覽圖片" width="200" height="200" />
       </label>
       <input
         id="file-input"

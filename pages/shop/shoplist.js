@@ -73,6 +73,7 @@ function Tabs() {
               {/* 地圖 */}
               <div className="col-md-6">
                 <iframe
+                  title={`${item.shop_name} 地圖`}
                   src={`https://www.google.com/maps/embed/v1/place?key=${MAP_API_KEY}&q=${encodeURIComponent(
                     item.shop_address
                   )}`}

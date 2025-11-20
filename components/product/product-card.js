@@ -51,13 +51,21 @@ export default function ProductCard({
         <div className={styles.cardBody}>
           <div className={`${styles.cardText} card-text position-relative`}>
             <div className="text">
-              <h5
+              <div
                 className={`${styles.productName} card-title`}
                 onClick={handleCardClick}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault()
+                    handleCardClick()
+                  }
+                }}
+                role="button"
+                tabIndex={0}
                 style={{ cursor: 'pointer' }}
               >
                 {product_name}
-              </h5>
+              </div>
 
               <h6 className={styles.modelName}>{brand_name}</h6>
             </div>
@@ -87,6 +95,14 @@ export default function ProductCard({
           <div
             className={`${styles.cartBtn} btn web-16px-md`}
             onClick={handleCardClick}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault()
+                handleCardClick()
+              }
+            }}
+            role="button"
+            tabIndex={0}
           >
             前往選購商品
           </div>

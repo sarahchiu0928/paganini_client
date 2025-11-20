@@ -39,6 +39,7 @@ export default function StayInTouch() {
               </button>
 
               <iframe
+                title="問卷調查表單"
                 sandbox="allow-same-origin allow-scripts allow-popups allow-forms allow-modals"
                 width="100%"
                 height="600px"
