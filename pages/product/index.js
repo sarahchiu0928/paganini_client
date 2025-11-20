@@ -96,6 +96,7 @@ export default function List() {
       }
     }
     fetchCategoriesAndBrands()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isPriceInitialized])
 
   const handleSearch = (input) => {
@@ -114,7 +115,8 @@ export default function List() {
     setTypingTimeout(timeout)
 
     return () => clearTimeout(timeout)
-  }, [searchInput, typingTimeout])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchInput])
 
   // 排序函數（未使用，保留以備將來使用）
   // const sortProducts = (productsToSort) => {

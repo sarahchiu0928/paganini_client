@@ -90,14 +90,14 @@ function Tabs() {
                   {' '}
                   <FontAwesomeIcon
                     icon={faMapMarkerAlt}
-                    className="text-danger me-2"
+                    className="text-danger me-2 w-16px h-16px"
                   />
                   <span className="text-secondary">{item.shop_address}</span>
                 </div>
                 <div className="d-flex align-items-center my-2">
                   <FontAwesomeIcon
                     icon={faPhoneAlt}
-                    className="text-success me-2"
+                    className="text-success me-2 w-16px h-16px"
                   />
                   <span className="text-dark">{item.shop_phone}</span>
                 </div>

@@ -1,5 +1,6 @@
 // pages/_app.js
 import { useEffect } from 'react'
+import Head from 'next/head'
 import { LoaderProvider } from '@/hooks/use-loader'
 import { CustomLoader } from '@/hooks/use-loader/components'
 import { Toaster } from 'react-hot-toast'
@@ -39,52 +40,67 @@ export default function MyApp({ Component, pageProps }) {
     Component.getLayout || ((page) => <DefaultLayout>{page}</DefaultLayout>)
 
   return (
-    //google
-    <AuthProvider>
-      <LoaderProvider close={0.5} CustomLoader={CustomLoader} global={true}>
-        <BreadcrumbProvider>
-          <CartProvider>
-            <OrderCouponProvider>
-              {isHomePage ? (
-                // 若為首頁，直接渲染 Component，不使用 DefaultLayout
-                <Component {...pageProps} />
-              ) : (
-                // 其他頁面則使用 DefaultLayout
-                getLayout(<Component {...pageProps} />)
-              )}
-              <Toaster
-                position="bottom-right"
-                toastOptions={{
-                  duration: 3000,
-                  icon: (
-                    <i
-                      className="bi bi-check-circle-fill"
-                      style={{ color: 'white', fontSize: '1.2rem' }}
-                    />
-                  ),
-                  style: {
-                    marginRight: '16px',
-                    marginBottom: '16px',
-                  },
-                  // 可以為不同類型的 toast 設置不同樣式
-                  success: {
+    <div>
+      <Head>
+        {/* google Noto Sans TC 字體 */}
+        {/* eslint-disable-next-line @next/next/no-page-custom-font */}
+        <link
+          href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200..900&display=swap"
+          rel="stylesheet"
+        />
+        {/* 英文字體bodoni moda */}
+        {/* eslint-disable-next-line @next/next/no-page-custom-font */}
+        <link
+          href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&display=swap"
+          rel="stylesheet"
+        />
+      </Head>
+      <AuthProvider>
+        <LoaderProvider close={0.5} CustomLoader={CustomLoader} global={true}>
+          <BreadcrumbProvider>
+            <CartProvider>
+              <OrderCouponProvider>
+                {isHomePage ? (
+                  // 若為首頁，直接渲染 Component，不使用 DefaultLayout
+                  <Component {...pageProps} />
+                ) : (
+                  // 其他頁面則使用 DefaultLayout
+                  getLayout(<Component {...pageProps} />)
+                )}
+                <Toaster
+                  position="bottom-right"
+                  toastOptions={{
+                    duration: 3000,
+                    icon: (
+                      <i
+                        className="bi bi-check-circle-fill"
+                        style={{ color: 'white', fontSize: '1.2rem' }}
+                      />
+                    ),
                     style: {
-                      background: '#716657', // 成功提示的背景色
-                      color: 'white',
+                      marginRight: '16px',
+                      marginBottom: '16px',
                     },
-                  },
-                  error: {
-                    style: {
-                      background: '#EF4444', // 錯誤提示的背景色
-                      color: 'white',
+                    // 可以為不同類型的 toast 設置不同樣式
+                    success: {
+                      style: {
+                        background: '#716657', // 成功提示的背景色
+                        color: 'white',
+                      },
                     },
-                  },
-                }}
-              />
-            </OrderCouponProvider>
-          </CartProvider>
-        </BreadcrumbProvider>
-      </LoaderProvider>
-    </AuthProvider>
+                    error: {
+                      style: {
+                        background: '#EF4444', // 錯誤提示的背景色
+                        color: 'white',
+                      },
+                    },
+                  }}
+                />
+              </OrderCouponProvider>
+            </CartProvider>
+          </BreadcrumbProvider>
+        </LoaderProvider>
+      </AuthProvider>
+    </div>
   )
 }
