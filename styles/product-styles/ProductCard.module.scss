@@ -3,7 +3,6 @@
   border: none;
   margin-bottom: 45px;
   position: relative;
-
 }
 
 .cardPic {
@@ -44,7 +43,7 @@
   padding-inline: 1px;
   padding-top: 12px;
   color: #716657;
-  width: 100%
+  width: 100%;
 }
 
 .cardText {
@@ -56,18 +55,17 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    width: 100%
+    width: 100%;
   }
 }
 
-
 .productName {
-  white-space: nowrap; 
-  overflow: hidden;    
-  text-overflow: ellipsis; 
-  width: 100%; 
-  max-width: 100%; 
-  display: block; 
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+  max-width: 100%;
+  display: block;
   @media screen and (max-width: 1199px) {
     font-size: 1rem;
   }
@@ -87,18 +85,18 @@
 
 .FavoriteIconLg {
   position: absolute;
-    top: -4px;
-    right: 0px;
-    color: #716657;
-    font-size: 1.2rem;
-    cursor: pointer;
-    margin-right: 5px;
+  top: -4px;
+  right: 0px;
+  color: #716657;
+  font-size: 1.2rem;
+  cursor: pointer;
+  margin-right: 5px;
   @media screen and (max-width: 1400px) {
     display: none;
   }
 }
 
-.FavoriteIconMd{
+.FavoriteIconMd {
   position: absolute;
   top: 5px;
   right: 10px;
@@ -156,14 +154,13 @@
   }
 
   @media screen and (max-width: 442px) {
-    margin-left: 0
+    margin-left: 0;
   }
 }
 
-
 .cartBtn {
   background-color: #716657;
-  color: #FEFBF6;
+  color: #fefbf6;
   width: 100%;
   height: 44px;
   border-radius: 5px;
@@ -186,8 +183,7 @@
   }
 
   &:hover {
-    background-color: #5A5246;
-    color: #FEFBF6;
+    background-color: #5a5246;
+    color: #fefbf6;
   }
-
 }

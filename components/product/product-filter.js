@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import styles from '@/styles/product-styles/productFilter.module.scss'
 
-
 export default function ProductFilter({
   brandNames,
   brandCounts,
@@ -20,8 +19,7 @@ export default function ProductFilter({
 }) {
   const [minValue, setMinValue] = useState(0)
   const [maxValue, setMaxValue] = useState(100)
-  
-  
+
   const [currentMinPrice, setCurrentMinPrice] = useState(minPrice)
   const [currentMaxPrice, setCurrentMaxPrice] = useState(maxPrice)
 
@@ -33,39 +31,44 @@ export default function ProductFilter({
     }
   }, [minPrice, maxPrice])
 
-
   useEffect(() => {
     if (initialMinPrice !== undefined && initialMaxPrice !== undefined) {
-      setMinValue(((currentMinPrice - initialMinPrice) / (initialMaxPrice - initialMinPrice)) * 100)
-      setMaxValue(((currentMaxPrice - initialMinPrice) / (initialMaxPrice - initialMinPrice)) * 100)
+      setMinValue(
+        ((currentMinPrice - initialMinPrice) /
+          (initialMaxPrice - initialMinPrice)) *
+          100
+      )
+      setMaxValue(
+        ((currentMaxPrice - initialMinPrice) /
+          (initialMaxPrice - initialMinPrice)) *
+          100
+      )
     }
   }, [initialMinPrice, initialMaxPrice, currentMinPrice, currentMaxPrice])
 
-  
-
   const convertToPrice = (percentage) => {
-    const min = initialMinPrice || minPrice;
-    const max = initialMaxPrice || maxPrice;
-    return Math.round(min + ((max - min) * percentage) / 100);
-  };
+    const min = initialMinPrice || minPrice
+    const max = initialMaxPrice || maxPrice
+    return Math.round(min + ((max - min) * percentage) / 100)
+  }
 
   // 更新滑動條的最小值
   const handleMinChange = (event) => {
-    const value = Math.min(Number(event.target.value), maxValue - 1);
-    setMinValue(value);
-    const newPrice = convertToPrice(value);
-    setCurrentMinPrice(newPrice);
-    setMinPrice(newPrice); // 即時更新父組件的價格
-  };
+    const value = Math.min(Number(event.target.value), maxValue - 1)
+    setMinValue(value)
+    const newPrice = convertToPrice(value)
+    setCurrentMinPrice(newPrice)
+    setMinPrice(newPrice) // 即時更新父組件的價格
+  }
 
   // 更新滑動條的最大值
   const handleMaxChange = (event) => {
-    const value = Math.max(Number(event.target.value), minValue + 1);
-    setMaxValue(value);
-    const newPrice = convertToPrice(value);
-    setCurrentMaxPrice(newPrice);
-    setMaxPrice(newPrice); // 即時更新父組件的價格
-  };
+    const value = Math.max(Number(event.target.value), minValue + 1)
+    setMaxValue(value)
+    const newPrice = convertToPrice(value)
+    setCurrentMaxPrice(newPrice)
+    setMaxPrice(newPrice) // 即時更新父組件的價格
+  }
 
   // 當滑動條釋放時更新價格篩選的最小值和最大值
   const updatePriceRange = () => {
@@ -82,8 +85,7 @@ export default function ProductFilter({
     selectedCategory ||
     selectedBrand ||
     currentMinPrice !== initialMinPrice ||
-    currentMaxPrice !== initialMaxPrice 
-    
+    currentMaxPrice !== initialMaxPrice
 
   // 在 ProductFilter 組件中的價格輸入處理
   const handlePriceChange = (e, type) => {
@@ -109,8 +111,8 @@ export default function ProductFilter({
   const clearAllFilters = () => {
     const min = initialMinPrice || minPrice
     const max = initialMaxPrice || maxPrice
-    setMinValue(0);
-    setMaxValue(100);
+    setMinValue(0)
+    setMaxValue(100)
     setCurrentMinPrice(min)
     setCurrentMaxPrice(max)
     setMinPrice(min)
@@ -121,7 +123,6 @@ export default function ProductFilter({
 
   return (
     <>
-      
       {hasFilters && (
         <button className={styles.clearFilter} onClick={clearAllFilters}>
           清除篩選

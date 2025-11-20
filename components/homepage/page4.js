@@ -13,7 +13,8 @@ const CourseSection = () => {
     {
       id: 39, // 唯一標識
       title: '小提琴獨奏技巧班',
-      description: '學員將學習複雜的獨奏技巧，並練習如帕格尼尼和維尼亞夫斯基的獨奏作品，提升舞台表現力。',
+      description:
+        '學員將學習複雜的獨奏技巧，並練習如帕格尼尼和維尼亞夫斯基的獨奏作品，提升舞台表現力。',
     },
     {
       id: 40,
@@ -24,7 +25,8 @@ const CourseSection = () => {
     {
       id: 36,
       title: '幼兒小提琴課程',
-      description: '通過遊戲和故事的方式，讓孩子們接觸小提琴。課程內容包括認識樂器、基本持琴姿勢、簡單的弓法練習，並培養孩子的音樂感知力。',
+      description:
+        '通過遊戲和故事的方式，讓孩子們接觸小提琴。課程內容包括認識樂器、基本持琴姿勢、簡單的弓法練習，並培養孩子的音樂感知力。',
     },
     {
       id: 34,
@@ -35,12 +37,14 @@ const CourseSection = () => {
     {
       id: 44,
       title: '小提琴高難度曲目班',
-      description: '本課程將學習如柴可夫斯基和西貝流士的高難度小提琴曲目，提升技巧的精確性和演奏自信。',
+      description:
+        '本課程將學習如柴可夫斯基和西貝流士的高難度小提琴曲目，提升技巧的精確性和演奏自信。',
     },
     {
       id: 16,
       title: '大提琴基礎入門',
-      description: '學員將學習如何正確持琴、使用弓法，以及簡單的樂譜閱讀和音準練習。',
+      description:
+        '學員將學習如何正確持琴、使用弓法，以及簡單的樂譜閱讀和音準練習。',
     },
     {
       id: 47,
@@ -136,12 +140,13 @@ const CourseSection = () => {
                       href={`/course/${course.id}`} // 動態生成的連結
                       className={`${styles.viewMore} fontLight px-3 mt-4`}
                     >
-                     立即報名
+                      立即報名
                     </a>
                   </div>
                 </div>
-                <a className={`${styles.courseTitle} mt-3 fontLight h6Bold`}
-                href={`/course/${course.id}`} 
+                <a
+                  className={`${styles.courseTitle} mt-3 fontLight h6Bold`}
+                  href={`/course/${course.id}`}
                 >
                   {course.title}
                 </a>

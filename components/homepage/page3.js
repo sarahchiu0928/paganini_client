@@ -63,7 +63,9 @@ export default function Page3() {
               精選提琴
             </h3>
           </div>
-          <h3 className={`m-0 h4Bold fontDarkBrown ${styles.subTitlePhone} mt-4`}>
+          <h3
+            className={`m-0 h4Bold fontDarkBrown ${styles.subTitlePhone} mt-4`}
+          >
             精選提琴
           </h3>
 
@@ -128,7 +130,9 @@ export default function Page3() {
                 id="violinDescription"
                 className="d-flex flex-column flex-md-row justify-content-between align-items-md-center"
               >
-                <h2 className={`h3Bold fontDarkBrown ${styles.responsiveTitle}`}>
+                <h2
+                  className={`h3Bold fontDarkBrown ${styles.responsiveTitle}`}
+                >
                   {descriptions[currentIndex].title}
                 </h2>
                 <h4 className="text-muted fontDarkBrown mt-2 mt-md-0">

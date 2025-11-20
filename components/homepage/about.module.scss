@@ -69,22 +69,22 @@
 }
 //手機板影片
 .videoContainer {
-  display:  none;
+  display: none;
   @media (max-width: 720px) {
-  display: block;
-  position: relative; 
+    display: block;
+    position: relative;
   }
 }
 .overlayContent {
   @media (max-width: 720px) {
-  position: absolute;
-  top: 25%; // 根據需求調整位置
-  left: 50%; // 根據需求調整位置
-  transform: translate(-50%,0);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  z-index: 50000; // 確保疊加在影片上方
+    position: absolute;
+    top: 25%; // 根據需求調整位置
+    left: 50%; // 根據需求調整位置
+    transform: translate(-50%, 0);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 50000; // 確保疊加在影片上方
   }
 }
 
@@ -98,16 +98,13 @@
   font-size: 20px; // 調整字體大小
   color: white; // 根據需求調整顏色
 }
-.mask{
-
-
-  @media  (max-width: 540px){
+.mask {
+  @media (max-width: 540px) {
     background-color: #00000048 !important;
     margin-top: 0;
     margin-bottom: 80px;
-    
   }
-  @media  (max-width: 390px){
+  @media (max-width: 390px) {
     background-color: #00000048 !important;
     position: fixed;
     top: 0;
@@ -115,7 +112,6 @@
     width: 100%;
     height: 708px;
     z-index: 40;
-    
   }
 }
 .aboutVideoMobile {
@@ -127,33 +123,30 @@
     margin-bottom: 161px;
     margin-top: -161px;
   }
-  @media  (max-width: 540px){
+  @media (max-width: 540px) {
     margin-top: 0;
     margin-bottom: 80px;
-    
   }
-  @media  (max-width: 390px){
+  @media (max-width: 390px) {
     width: 100%;
     height: auto;
-    
   }
-
 }
 /* 當螢幕寬度小於 720px 時，設置樣式 */
 /* 小於 540px：手機垂直模式 */
 @media (max-width: 540px) {
-  .aboutBg{
+  .aboutBg {
     padding-bottom: 80px;
     padding-top: 0;
   }
-  .subTitleMargin{
+  .subTitleMargin {
     margin-top: 60px;
     margin-bottom: 60px;
     margin-left: 0px;
     text-align: center;
     font-size: 16px;
   }
-  .phoneFont{
+  .phoneFont {
     font-size: 14px;
   }
   .aboutPBox {
@@ -173,17 +166,16 @@
 
 /* 541px - 767px：手機橫向模式 */
 @media (min-width: 541px) and (max-width: 767px) {
-  .aboutBg{
+  .aboutBg {
     padding-bottom: 161px;
   }
-  .subTitleMargin{
-    
+  .subTitleMargin {
     margin-top: 80px;
     margin-bottom: 80px;
     margin-left: 20px;
     font-size: 16px;
   }
-  .phoneFont{
+  .phoneFont {
     font-size: 14px;
   }
   .aboutPBox {
@@ -195,11 +187,10 @@
     margin: auto;
   }
   .aboutVideo1,
-  .aboutVideo2,.aboutVideo3
-  {
+  .aboutVideo2,
+  .aboutVideo3 {
     display: none;
   }
-
 }
 
 /* 768px - 959px：平板 */
@@ -238,7 +229,6 @@
 
 /* 1140px - 1439px：桌面 */
 @media (min-width: 1140px) and (max-width: 1439px) {
- 
   .aboutLogo {
     width: 80%;
   }
@@ -250,4 +240,3 @@
     width: 30%;
   }
 }
-

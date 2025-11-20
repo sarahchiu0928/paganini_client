@@ -54,7 +54,7 @@
   margin-right: 35px;
 
   @media screen and (max-width: 767px) {
-    margin-right: 10px
+    margin-right: 10px;
   }
 }
 
@@ -78,7 +78,7 @@
   }
 
   @media screen and (max-width: 527) {
-    width: 80px
+    width: 80px;
   }
 
   &:hover {
@@ -100,10 +100,8 @@
   }
 
   @media screen and (max-width: 527) {
-    width: 80px
+    width: 80px;
   }
-
-
 
   &:hover {
     background-color: #5a5246;
@@ -143,9 +141,8 @@
   text-align: left;
   margin-left: 20px;
   width: 180px;
-  
 }
-.name{
+.name {
   color: #5a5650;
 }
 
@@ -211,7 +208,7 @@
   }
 
   .img-container {
-    margin:0 0 16px 0;
+    margin: 0 0 16px 0;
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -231,7 +228,6 @@
   }
 
   .course-price {
-
   }
 
   .button-container {

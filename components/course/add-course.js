@@ -3,12 +3,12 @@ import style from './add-course.module.scss'
 // icon
 import { IoCalendarClear } from 'react-icons/io5'
 import { BsHeart, BsHeartFill } from 'react-icons/bs'
-import { IoTime } from "react-icons/io5";
-import { IoMdPerson } from "react-icons/io";
+import { IoTime } from 'react-icons/io5'
+import { IoMdPerson } from 'react-icons/io'
 import CourseLike from '@/components/course-like/like-icon'
 
 const AddCourse = ({ course, topCourses }) => {
-  const { id: course_id } = course;
+  const { id: course_id } = course
 
   // 讓時間只顯示小時和分鐘
   const formatTime = (time) => (time ? time.slice(0, -3) : '')
@@ -40,11 +40,11 @@ const AddCourse = ({ course, topCourses }) => {
       <div className={`card-body`}>
         <div className={`${style['course-info']}`}>
           <div className={`d-flex ${style['course-title']}`}>
-            <div className={` ${style['course-name']}`}>{course.course_name}</div>
+            <div className={` ${style['course-name']}`}>
+              {course.course_name}
+            </div>
             <div className={`${style['like-icon']}`}>
-            <CourseLike
-                  course_id={course_id}                 
-                />
+              <CourseLike course_id={course_id} />
             </div>
           </div>
           <div className={`d-flex align-items-center mb-3 mt-2`}>
@@ -93,10 +93,12 @@ const AddCourse = ({ course, topCourses }) => {
             className={`mb-0 h3Bold ${style['discount-price']}`}
           >{`NT$ ${course.course_discount_price.toLocaleString()} /期`}</h3>
         </div>
-        <button className={`btn w-100 web-16px-B ${style['sign-btn']}`}
-        onClick={() => {
-          window.location.href = "https://www.surveycake.com/s/vNL0O";
-        }}>
+        <button
+          className={`btn w-100 web-16px-B ${style['sign-btn']}`}
+          onClick={() => {
+            window.location.href = 'https://www.surveycake.com/s/vNL0O'
+          }}
+        >
           馬上報名
         </button>
       </div>

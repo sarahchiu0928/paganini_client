@@ -2,13 +2,18 @@ import React from 'react'
 import styles from './search.module.scss'
 import { IoSearchSharp } from 'react-icons/io5'
 
-const SearchBar = ({ search, onSearchChange, onSearchClick, onClearSearch }) => {
+const SearchBar = ({
+  search,
+  onSearchChange,
+  onSearchClick,
+  onClearSearch,
+}) => {
   const handleSearchChange = (event) => {
-    onSearchChange(event);
+    onSearchChange(event)
     if (event.target.value === '') {
-      onClearSearch(); // 清除搜尋結果
+      onClearSearch() // 清除搜尋結果
     }
-  };
+  }
   return (
     <div className={`mb-3 d-flex ${styles['search']}`}>
       <input
@@ -26,7 +31,7 @@ const SearchBar = ({ search, onSearchChange, onSearchClick, onClearSearch }) => 
         <IoSearchSharp size={20} />
       </span>
     </div>
-  );
-};
+  )
+}
 
-export default SearchBar;
+export default SearchBar

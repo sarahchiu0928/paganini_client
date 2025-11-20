@@ -49,28 +49,26 @@
   @media (max-width: 540px) {
     width: 200px;
     height: 50px;
-  line-height: 35px;
-  font-size: 16px;
-
-
-    }
+    line-height: 35px;
+    font-size: 16px;
+  }
 }
 .aboutBtn:hover {
   background-color: #5a5650;
   color: #fff;
-  }
+}
 
-  .formContainer{
-    position: relative ;
-    margin-top: 50px;
-  }
-  .closeButton {
-    position: absolute;
-    top: -30px;
-    right: -5px;
-    color: #fff;
-    border: none;
-    background: transparent;
-    font-size: 16px;
-    cursor: pointer;
-  }
+.formContainer {
+  position: relative;
+  margin-top: 50px;
+}
+.closeButton {
+  position: absolute;
+  top: -30px;
+  right: -5px;
+  color: #fff;
+  border: none;
+  background: transparent;
+  font-size: 16px;
+  cursor: pointer;
+}

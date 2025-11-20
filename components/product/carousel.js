@@ -25,7 +25,7 @@ export default function Carousel({ pictures, brand_name }) {
         style={{
           '--swiper-navigation-color': '#fff',
           '--swiper-pagination-color': '#fff',
-          margin: '0 20px'
+          margin: '0 20px',
         }}
         autoplay={{
           delay: 2500,
@@ -39,10 +39,13 @@ export default function Carousel({ pictures, brand_name }) {
       >
         {pictures.map((picture, index) => (
           <SwiperSlide key={index}>
-            <img src={`/product-pics/${brand_name}/${picture}`} alt={`product ${index}`} style={{objectFit: 'contain'}}/>
+            <img
+              src={`/product-pics/${brand_name}/${picture}`}
+              alt={`product ${index}`}
+              style={{ objectFit: 'contain' }}
+            />
           </SwiperSlide>
         ))}
-
       </Swiper>
       <Swiper
         style={{
@@ -59,7 +62,11 @@ export default function Carousel({ pictures, brand_name }) {
         {pictures.map((picture, index) => (
           <SwiperSlide key={index}>
             <div className={styles.smallImg}>
-              <img src={`/product-pics/${brand_name}/${picture}`} alt={`thumbnail ${index}`} style={{objectFit: 'contain'}}/>
+              <img
+                src={`/product-pics/${brand_name}/${picture}`}
+                alt={`thumbnail ${index}`}
+                style={{ objectFit: 'contain' }}
+              />
             </div>
           </SwiperSlide>
         ))}

@@ -8,7 +8,6 @@ import { useAuth } from '@/hooks/use-auth'
 import { useRouter } from 'next/router'
 import GoogleLoginButton from '@/components/member/google-login'
 
-
 export default function LoginForm() {
   const [account, setAccount] = useState('')
   const [password, setPassword] = useState('')
@@ -29,11 +28,11 @@ export default function LoginForm() {
 
   // 登入處理
   const handleLogin = async () => {
-    const success = await login(account, password);
-    
+    const success = await login(account, password)
+
     if (success) {
-      alert('登入成功');
-      router.push('/'); // 導向到首頁或其他頁面
+      alert('登入成功')
+      router.push('/') // 導向到首頁或其他頁面
     } else {
       // alert('登入失敗，請檢查帳號或密碼');
     }

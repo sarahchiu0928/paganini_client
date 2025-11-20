@@ -21,7 +21,7 @@
   height: 500px;
   transition: transform 0.3s ease;
   margin: 0 10px;
-  @media (max-width:500px) {
+  @media (max-width: 500px) {
     width: 150px;
     height: auto;
     margin-bottom: 50px;
@@ -87,7 +87,7 @@
   height: 40px !important;
   @media (max-width: 540px) {
     width: 36px !important;
-     height: 36px !important;
+    height: 36px !important;
   }
 }
 
@@ -162,7 +162,7 @@
     position: absolute;
     top: 385px !important;
     left: 50%;
-  } 
+  }
   .sectionPadding {
     position: relative;
     padding-top: 80px;
@@ -230,5 +230,3 @@
     font-weight: bold;
   }
 }
-
-

@@ -1,37 +1,37 @@
-import React, { useState, useEffect } from 'react';
-import Swal from 'sweetalert2';
-import tabStyle from './tab.module.scss';
-import MemberProfileForm from './member-profile'; // 匯入會員資料表單元件
-import PasswordChangeForm from './member-password'; // 匯入修改密碼表單元件
-import { useAuth } from '@/hooks/use-auth';
+import React, { useState, useEffect } from 'react'
+import Swal from 'sweetalert2'
+import tabStyle from './tab.module.scss'
+import MemberProfileForm from './member-profile' // 匯入會員資料表單元件
+import PasswordChangeForm from './member-password' // 匯入修改密碼表單元件
+import { useAuth } from '@/hooks/use-auth'
 import { apiBaseUrl } from '@/configs'
 
 export default function MemberProfile() {
-  const { auth } = useAuth();
-  const [isEditing, setIsEditing] = useState(false);
-  const [activeTab, setActiveTab] = useState('profile'); // 頁籤狀態
-  const [memberData, setMemberData] = useState(null);
+  const { auth } = useAuth()
+  const [isEditing, setIsEditing] = useState(false)
+  const [activeTab, setActiveTab] = useState('profile') // 頁籤狀態
+  const [memberData, setMemberData] = useState(null)
 
   useEffect(() => {
     if (auth.userData) {
-      setMemberData(auth.userData);
+      setMemberData(auth.userData)
     }
-  }, [auth.userData]);
+  }, [auth.userData])
 
   const toggleEdit = () => {
-    setIsEditing(!isEditing);
-  };
+    setIsEditing(!isEditing)
+  }
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
+    const { name, value } = e.target
     setMemberData((prevData) => ({
       ...prevData,
       [name]: value,
-    }));
-  };
+    }))
+  }
 
   const handleSave = async (e) => {
-    e.preventDefault();
+    e.preventDefault()
     try {
       const response = await fetch(`${apiBaseUrl}/users/update-profile`, {
         method: 'PUT',
@@ -41,9 +41,9 @@ export default function MemberProfile() {
         },
         credentials: 'include',
         body: JSON.stringify(memberData),
-      });
+      })
 
-      const resData = await response.json();
+      const resData = await response.json()
 
       if (response.ok && resData.status === 'success') {
         Swal.fire({
@@ -55,8 +55,8 @@ export default function MemberProfile() {
             htmlContainer: 'swal2-custom-text',
             confirmButton: 'swal2-custom-confirm-button', // 自定義按鈕樣式
           },
-        });
-        toggleEdit();
+        })
+        toggleEdit()
       } else {
         Swal.fire({
           icon: 'error',
@@ -67,7 +67,7 @@ export default function MemberProfile() {
             htmlContainer: 'swal2-custom-text',
             confirmButton: 'swal2-custom-confirm-button', // 自定義按鈕樣式
           },
-        });
+        })
       }
     } catch {
       Swal.fire({
@@ -79,9 +79,9 @@ export default function MemberProfile() {
           htmlContainer: 'swal2-custom-text',
           confirmButton: 'swal2-custom-confirm-button', // 自定義按鈕樣式
         },
-      });
+      })
     }
-  };
+  }
 
   const renderTabContent = () => {
     if (activeTab === 'profile') {
@@ -93,13 +93,13 @@ export default function MemberProfile() {
           handleSave={handleSave}
           toggleEdit={toggleEdit}
         />
-      );
+      )
     } else if (activeTab === 'password') {
-      return <PasswordChangeForm />;
+      return <PasswordChangeForm />
     }
-  };
+  }
 
-  if (!memberData) return <div>資料加載中...</div>;
+  if (!memberData) return <div>資料加載中...</div>
 
   return (
     <div className="container">
@@ -124,5 +124,5 @@ export default function MemberProfile() {
         <div className={`${tabStyle.tabContent}`}>{renderTabContent()}</div>
       </div>
     </div>
-  );
+  )
 }

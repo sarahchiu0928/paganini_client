@@ -61,5 +61,4 @@ export const pathsLocaleMap = {
   'edit':'編輯',
 }
 
-
 /* eslint-enable */

@@ -1,34 +1,34 @@
-import React, { useState } from 'react';
-import Swal from 'sweetalert2';
+import React, { useState } from 'react'
+import Swal from 'sweetalert2'
 
 export default function PasswordChangeForm() {
-  const [currentPassword, setCurrentPassword] = useState('');
-  const [newPassword, setNewPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
-  const [storedPassword, setStoredPassword] = useState('123456'); // 模擬已存密碼
+  const [currentPassword, setCurrentPassword] = useState('')
+  const [newPassword, setNewPassword] = useState('')
+  const [confirmPassword, setConfirmPassword] = useState('')
+  const [storedPassword, setStoredPassword] = useState('123456') // 模擬已存密碼
 
-  const [currentPasswordValid, setCurrentPasswordValid] = useState(null); // 當前密碼驗證狀態
-  const [newPasswordValid, setNewPasswordValid] = useState(null); // 新密碼驗證狀態
-  const [confirmPasswordValid, setConfirmPasswordValid] = useState(null); // 確認密碼驗證狀態
+  const [currentPasswordValid, setCurrentPasswordValid] = useState(null) // 當前密碼驗證狀態
+  const [newPasswordValid, setNewPasswordValid] = useState(null) // 新密碼驗證狀態
+  const [confirmPasswordValid, setConfirmPasswordValid] = useState(null) // 確認密碼驗證狀態
 
   const handleCurrentPasswordChange = (value) => {
-    setCurrentPassword(value);
-    setCurrentPasswordValid(value === storedPassword);
-  };
+    setCurrentPassword(value)
+    setCurrentPasswordValid(value === storedPassword)
+  }
 
   const handleNewPasswordChange = (value) => {
-    setNewPassword(value);
-    setNewPasswordValid(value.length >= 6); // 密碼長度需至少6個字元
-    setConfirmPasswordValid(value === confirmPassword); // 即時檢查確認密碼是否與新密碼相符
-  };
+    setNewPassword(value)
+    setNewPasswordValid(value.length >= 6) // 密碼長度需至少6個字元
+    setConfirmPasswordValid(value === confirmPassword) // 即時檢查確認密碼是否與新密碼相符
+  }
 
   const handleConfirmPasswordChange = (value) => {
-    setConfirmPassword(value);
-    setConfirmPasswordValid(value === newPassword);
-  };
+    setConfirmPassword(value)
+    setConfirmPasswordValid(value === newPassword)
+  }
 
   const handleSaveNewPassword = (e) => {
-    e.preventDefault();
+    e.preventDefault()
 
     // 驗證輸入
     if (!currentPasswordValid) {
@@ -41,9 +41,8 @@ export default function PasswordChangeForm() {
           htmlContainer: 'swal2-custom-text',
           confirmButton: 'swal2-custom-confirm-button', // 自定義按鈕樣式
         },
-
-      });
-      return;
+      })
+      return
     }
 
     if (!newPasswordValid) {
@@ -56,8 +55,8 @@ export default function PasswordChangeForm() {
           htmlContainer: 'swal2-custom-text',
           confirmButton: 'swal2-custom-confirm-button', // 自定義按鈕樣式
         },
-      });
-      return;
+      })
+      return
     }
 
     if (!confirmPasswordValid) {
@@ -70,12 +69,12 @@ export default function PasswordChangeForm() {
           htmlContainer: 'swal2-custom-text',
           confirmButton: 'swal2-custom-confirm-button', // 自定義按鈕樣式
         },
-      });
-      return;
+      })
+      return
     }
 
     // 更新密碼
-    setStoredPassword(newPassword);
+    setStoredPassword(newPassword)
 
     Swal.fire({
       icon: 'success',
@@ -86,16 +85,16 @@ export default function PasswordChangeForm() {
         htmlContainer: 'swal2-custom-text',
         confirmButton: 'swal2-custom-confirm-button', // 自定義按鈕樣式
       },
-    });
+    })
 
     // 清空輸入
-    setCurrentPassword('');
-    setNewPassword('');
-    setConfirmPassword('');
-    setCurrentPasswordValid(null);
-    setNewPasswordValid(null);
-    setConfirmPasswordValid(null);
-  };
+    setCurrentPassword('')
+    setNewPassword('')
+    setConfirmPassword('')
+    setCurrentPasswordValid(null)
+    setNewPasswordValid(null)
+    setConfirmPasswordValid(null)
+  }
 
   return (
     <div className="px-lg-5">
@@ -168,5 +167,5 @@ export default function PasswordChangeForm() {
         </button>
       </form>
     </div>
-  );
+  )
 }

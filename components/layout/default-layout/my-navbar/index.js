@@ -270,7 +270,9 @@ export default function MyNavbar() {
             <p className="pt-2">10月3日 (二) 公休一日</p>
             <p>營業時間：10:00 AM - 17:00 PM</p>
             <Link href="/shop" passHref>
-              <Button className="w-50 my-4 loginBtn" onClick={handleClose}>門市資訊</Button>
+              <Button className="w-50 my-4 loginBtn" onClick={handleClose}>
+                門市資訊
+              </Button>
             </Link>
           </div>
         </Offcanvas.Body>

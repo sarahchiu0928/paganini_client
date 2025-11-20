@@ -25,7 +25,11 @@ export default function MemberCenterLayout({ children }) {
             >
               <nav className="nav flex-column text-center w-100">
                 {navItems.map((item) => (
-                  <Link key={item.href} href={item.href} className="nav-link fontDarkBrown mb-5">
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className="nav-link fontDarkBrown mb-5"
+                  >
                     <h5
                       className={`${
                         router.pathname === item.href ? styles.active : ''
@@ -69,7 +73,9 @@ export default function MemberCenterLayout({ children }) {
             </div>
 
             {/* 主要內容區域 */}
-            <div className={`col-xl-10 col-md-12 px-0 mx-0 ${styles.contentArea}`}>
+            <div
+              className={`col-xl-10 col-md-12 px-0 mx-0 ${styles.contentArea}`}
+            >
               {children}
             </div>
           </div>

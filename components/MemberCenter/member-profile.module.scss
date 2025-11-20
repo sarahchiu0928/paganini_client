@@ -3,7 +3,7 @@
   display: flex;
   align-items: center;
 }
-.labelAccount{
+.labelAccount {
   background: #d8d8d8 !important;
 }
 .title {
@@ -18,7 +18,6 @@
   overflow: hidden;
   height: 50px;
   transition: border-color 0.3s;
- 
 }
 
 .customInputGroup:focus-within {
@@ -71,8 +70,8 @@
   max-height: 500px; // 設定區塊的最大高度
   // height: calc(100vh - 200px); // 使用計算方式設定動態高度（選擇性）
 }
-.rwdProfile{
+.rwdProfile {
   @media (max-width: 390px) {
     font-size: 16px;
-    }
+  }
 }

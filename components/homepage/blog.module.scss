@@ -42,8 +42,6 @@
   width: 260px; /* 必要時明確設置寬度 */
   height: 156px; /* 必要時明確設置高度 */
   overflow: hidden; /* 確保裁剪效果 */
- 
-
 }
 
 .contentLink {
@@ -67,7 +65,6 @@
   font-size: 20px;
   font-weight: bold;
   margin-left: auto; /* 讓按鈕靠右 */
-
 }
 .aboutBtn:hover {
   background-color: #5a5650;
@@ -84,11 +81,10 @@
   background-size: cover;
   background-position: center;
 }
-.leftBlog{
+.leftBlog {
   @media (max-width: 540px) {
-    
-     position: static;
-    }
+    position: static;
+  }
 }
 .imageContainer {
   position: relative;
@@ -140,7 +136,7 @@
     padding-top: 80px;
     padding-bottom: 80px;
   }
-  .leftBlog{
+  .leftBlog {
     z-index: 1;
   }
   .blogMargin {
@@ -164,19 +160,16 @@
     height: 156px;
     margin: auto;
   }
-  .leftContainer{
-   
+  .leftContainer {
     margin-left: 50px;
     padding-bottom: 10px;
     margin-right: 35px;
     border-bottom: 1px solid #716657;
     margin-bottom: 3rem !important;
-    
   }
-  .aboutBtn{
+  .aboutBtn {
     margin: auto;
   }
-
 }
 
 /* 541px - 767px：手機橫向模式 */

@@ -18,22 +18,17 @@
   }
 }
 
- 
-  .count {
-    
-    @media screen and (max-width: 1199px) {
-      font-size: 1rem;
-    }
-
-    @media screen and (max-width: 991px){
-      position: absolute;
-      right: 0;
-      top: 68px;
-      
-    }
-
+.count {
+  @media screen and (max-width: 1199px) {
+    font-size: 1rem;
   }
 
+  @media screen and (max-width: 991px) {
+    position: absolute;
+    right: 0;
+    top: 68px;
+  }
+}
 
 .searchBarSm {
   @media screen and (max-width: 991px) {
@@ -69,20 +64,18 @@
     }
   }
 
+  @media screen and (min-width: 992px) {
+    display: none;
+  }
 
-@media screen and (min-width: 992px) {
-  display: none;
-}
+  @media screen and (min-width: 767px) {
+    display: 100%;
+  }
 
-@media screen and (min-width: 767px) {
-  display: 100%;
+  @media screen and (max-width: 390px) {
+    display: 10%;
+  }
 }
-
-@media screen and (max-width: 390px) {
-  display: 10%;
-}
-}
-
 
 .filterButton {
   border: none;
@@ -154,18 +147,17 @@
   }
 
   &:hover {
-    border-color: #5A5246;
-    color: #5A5246;
+    border-color: #5a5246;
+    color: #5a5246;
   }
 }
 
 .dropdownMenu {
   min-width: 100%;
-  background-color: #E2DDD6;
+  background-color: #e2ddd6;
   border-color: #716657;
   border-top: transparent;
   border-radius: 0 0 5px 5px;
-  
 
   &:hover {
     background-color: #716657;

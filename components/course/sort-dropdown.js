@@ -1,31 +1,31 @@
-import { useState, useRef, useEffect } from 'react';
-import styles from './sort-dropdown.module.scss';
+import { useState, useRef, useEffect } from 'react'
+import styles from './sort-dropdown.module.scss'
 
 const SortDropdown = ({ onSortChange }) => {
-  const [selectedOption, setSelectedOption] = useState("熱門課程");
-  const [isOpen, setIsOpen] = useState(false);
-  const options = ["熱門課程", "最新課程", "價格由高到低", "價格由低到高"];
-  const dropdownRef = useRef(null);
+  const [selectedOption, setSelectedOption] = useState('熱門課程')
+  const [isOpen, setIsOpen] = useState(false)
+  const options = ['熱門課程', '最新課程', '價格由高到低', '價格由低到高']
+  const dropdownRef = useRef(null)
 
   const handleSelect = (option) => {
-    setSelectedOption(option);
-    setIsOpen(false);
-    onSortChange(option);
-  };
+    setSelectedOption(option)
+    setIsOpen(false)
+    onSortChange(option)
+  }
 
   // 點擊外部時關閉選單
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        setIsOpen(false);
+        setIsOpen(false)
       }
-    };
+    }
 
-    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener('mousedown', handleClickOutside)
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [])
 
   return (
     <div ref={dropdownRef} className={`dropdown ${styles['sort-dropdown']}`}>
@@ -38,7 +38,10 @@ const SortDropdown = ({ onSortChange }) => {
         {selectedOption}
       </button>
       {isOpen && (
-        <ul className={`dropdown-menu ${styles['dropdown-menu']}`} style={{ display: 'block' }}>
+        <ul
+          className={`dropdown-menu ${styles['dropdown-menu']}`}
+          style={{ display: 'block' }}
+        >
           {options.map((option, index) => (
             <li key={index}>
               <a
@@ -47,8 +50,8 @@ const SortDropdown = ({ onSortChange }) => {
                   option === selectedOption ? styles['selected'] : ''
                 }`}
                 onClick={(e) => {
-                  e.preventDefault();
-                  handleSelect(option);
+                  e.preventDefault()
+                  handleSelect(option)
                 }}
               >
                 {option}
@@ -58,7 +61,7 @@ const SortDropdown = ({ onSortChange }) => {
         </ul>
       )}
     </div>
-  );
-};
+  )
+}
 
-export default SortDropdown;
+export default SortDropdown

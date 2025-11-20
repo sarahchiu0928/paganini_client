@@ -18,10 +18,9 @@ function Products() {
   useEffect(() => {
     const fetchFavorites = async () => {
       try {
-        const response = await fetch(
-          `${apiBaseUrl}/product-favorites`,
-          { credentials: 'include' }
-        )
+        const response = await fetch(`${apiBaseUrl}/product-favorites`, {
+          credentials: 'include',
+        })
         const data = await response.json()
         if (data.status === 'success') {
           setFavorites(data.data.favorites)
@@ -76,11 +75,9 @@ function Products() {
   }
   return (
     <>
-
       <div className={`${tabStyle.tabContent}`}>
         <div className={`${tabStyle.scroll}`}>
           <div className="row">
-
             {/* 大尺寸時 */}
             <div className={styles.contentLg}>
               {favorites.map((product) => (
@@ -129,7 +126,6 @@ function Products() {
               ))}
             </div>
 
-
             {/* 小尺寸時 */}
             <div className={styles.contentSm}>
               {favorites.map((product) => (
@@ -151,13 +147,19 @@ function Products() {
 
                   <div className={styles.infoArea}>
                     <div className={styles.productTitleArea}>
-                      <h5 className={`${styles.brandName} fontDarkBrown web-16px-B`}>
+                      <h5
+                        className={`${styles.brandName} fontDarkBrown web-16px-B`}
+                      >
                         {product.brand_name}
                       </h5>
-                      <h5 className={`${styles.productName} fontDarkBrown web-16px-B`}>
+                      <h5
+                        className={`${styles.productName} fontDarkBrown web-16px-B`}
+                      >
                         {product.product_name}
                       </h5>
-                      <h5 className={`${styles.price} fontDarkBrown h6Bold mb-3`}>
+                      <h5
+                        className={`${styles.price} fontDarkBrown h6Bold mb-3`}
+                      >
                         NT${product.display_price.toLocaleString()}
                       </h5>
                     </div>
@@ -305,7 +307,6 @@ function Courses() {
               // onClick={() => handleCardClick(course.course_id)}
               style={{ cursor: 'pointer' }}
             >
-
               <div className={`d-flex ${styles['img-container']}`}>
                 <Image
                   src={`/images/course/${course.course_img}`}
@@ -321,17 +322,21 @@ function Courses() {
                   <div className={`p-14pt-B ${styles['teacher']}`}>
                     {`${course.course_teacher} 老師`}
                   </div>
-                  <div className={`web-16px-B fontDarkBrown ${styles['course-price']}`}>
+                  <div
+                    className={`web-16px-B fontDarkBrown ${styles['course-price']}`}
+                  >
                     {`NT$ ${course.course_price.toLocaleString()} /期`}
                   </div>
                 </div>
               </div>
               <div className={`mx-1 ${styles['button-container']}`}>
-                <div className={`btn p-14pt-M  ${styles['heart-btn']}`}
+                <div
+                  className={`btn p-14pt-M  ${styles['heart-btn']}`}
                   onClick={(e) => {
                     e.stopPropagation()
                     handleRemoveFav(course.course_id)
-                  }}>
+                  }}
+                >
                   移除收藏
                 </div>
                 <div
@@ -343,7 +348,6 @@ function Courses() {
                 >
                   立即報名
                 </div>
-
               </div>
             </div>
 
@@ -376,15 +380,17 @@ function Tabs() {
         <div className={`${tabStyle.tabButtons}`}>
           <button
             onClick={() => setActiveTab('tab1')}
-            className={`${activeTab === 'tab1' ? tabStyle.active : ''} ${styles.tabTitle
-              } fontDarkBrown`}
+            className={`${activeTab === 'tab1' ? tabStyle.active : ''} ${
+              styles.tabTitle
+            } fontDarkBrown`}
           >
             商品
           </button>
           <button
             onClick={() => setActiveTab('tab2')}
-            className={`${activeTab === 'tab2' ? tabStyle.active : ''} ${styles.tabTitle
-              } fontDarkBrown`}
+            className={`${activeTab === 'tab2' ? tabStyle.active : ''} ${
+              styles.tabTitle
+            } fontDarkBrown`}
           >
             課程
           </button>

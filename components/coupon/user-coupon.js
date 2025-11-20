@@ -26,10 +26,10 @@ const Coupon = ({ coupons }) => {
                 {coupon.name}
               </h6>
               <div className={`${styles['coupon-info']}`}>
-              <p className={`web-16px-M`}>
-                {coupon.info}
-                {/* {coupon.info.length > 18 ? `${coupon.info.substring(0, 10)}...` : coupon.info} */}
-              </p>
+                <p className={`web-16px-M`}>
+                  {coupon.info}
+                  {/* {coupon.info.length > 18 ? `${coupon.info.substring(0, 10)}...` : coupon.info} */}
+                </p>
               </div>
               <p className={`p-14pt-B ${styles['exp-date']}`}>
                 {`有效期限：${
@@ -58,10 +58,10 @@ const Coupon = ({ coupons }) => {
             )}
             {coupon.status === 4 && (
               <>
-              <div className={styles['overlay']}></div>
-              <div className={styles['stamp']}>
-                <img src="/images/coupon/expired.png" alt="已失效" />
-              </div>
+                <div className={styles['overlay']}></div>
+                <div className={styles['stamp']}>
+                  <img src="/images/coupon/expired.png" alt="已失效" />
+                </div>
               </>
             )}
           </div>

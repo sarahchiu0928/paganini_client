@@ -1,30 +1,30 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react'
 
 const BackToTopButton = () => {
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(false)
 
   // 滾動事件處理
   const toggleVisibility = () => {
     if (window.pageYOffset > 20) {
-      setIsVisible(true);
+      setIsVisible(true)
     } else {
-      setIsVisible(false);
+      setIsVisible(false)
     }
-  };
+  }
 
   // 點擊返回頂部
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
       behavior: 'smooth',
-    });
-  };
+    })
+  }
 
   // 綁定滾動事件
   useEffect(() => {
-    window.addEventListener('scroll', toggleVisibility);
-    return () => window.removeEventListener('scroll', toggleVisibility);
-  }, []);
+    window.addEventListener('scroll', toggleVisibility)
+    return () => window.removeEventListener('scroll', toggleVisibility)
+  }, [])
 
   return (
     isVisible && (
@@ -35,7 +35,7 @@ const BackToTopButton = () => {
         ^
       </button>
     )
-  );
-};
+  )
+}
 
-export default BackToTopButton;
+export default BackToTopButton

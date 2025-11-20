@@ -45,14 +45,16 @@ const PageSelector = ({ currentPage, totalPages, onPageChange }) => {
 
   return (
     <div className={styles.pageSelectorDiv}>
-
-        <button
-          className={`border-0 ${styles.disabledBtn}`}
-          onClick={handlePrevious}
-          disabled={currentPage === 1}
-        >
-          <FontAwesomeIcon icon={faCircleChevronLeft} className={styles.pageLeft} />
-        </button>
+      <button
+        className={`border-0 ${styles.disabledBtn}`}
+        onClick={handlePrevious}
+        disabled={currentPage === 1}
+      >
+        <FontAwesomeIcon
+          icon={faCircleChevronLeft}
+          className={styles.pageLeft}
+        />
+      </button>
 
       {pages.map((page) => (
         <button
@@ -71,7 +73,10 @@ const PageSelector = ({ currentPage, totalPages, onPageChange }) => {
           onClick={handleNext}
           disabled={currentPage === totalPages}
         >
-          <FontAwesomeIcon icon={faCircleChevronRight} className={styles.pageRight} />
+          <FontAwesomeIcon
+            icon={faCircleChevronRight}
+            className={styles.pageRight}
+          />
         </button>
       )}
     </div>

@@ -1,15 +1,16 @@
-.pageSelectorDiv{
-    display: flex;
-    align-items: flex-end;
-    justify-content: center; 
-    margin-inline: auto;
-    gap: 12px;
+.pageSelectorDiv {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  margin-inline: auto;
+  gap: 12px;
 }
 
-.pageLeft, .pageRight{
-    font-size: 1.5rem;
-    color: #716657;
-    transition: color 0.3s ease;
+.pageLeft,
+.pageRight {
+  font-size: 1.5rem;
+  color: #716657;
+  transition: color 0.3s ease;
 
   &:hover {
     color: #5a5246;
@@ -21,12 +22,12 @@
 }
 
 .pageNumbers {
-    display: flex;
-    gap: 1rem;
-  }
+  display: flex;
+  gap: 1rem;
+}
 
-.pageButton{
-    font-size: 1rem;
+.pageButton {
+  font-size: 1rem;
   color: #716657;
   background-color: transparent;
   border: none;

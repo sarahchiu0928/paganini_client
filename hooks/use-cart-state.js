@@ -145,7 +145,8 @@ export const CartProvider = ({
         isInCart,
         increment,
         decrement,
-        title, setTitle
+        title,
+        setTitle,
       }}
     >
       {children}

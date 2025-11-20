@@ -19,7 +19,6 @@ export default function Page2() {
             />
             <p className={`${styles.verticalText} `}>帕 格 尼 尼</p>
           </div>
-         
 
           {/* 手機版影片 */}
           <div className={`${styles.mask}`}></div>
@@ -34,19 +33,19 @@ export default function Page2() {
           </video>
         </div>
         <div>
-            <img
-              src="homepage/Linked Path Group (1).gif"
-              alt="Animated GIF"
-              style={{
-                width: '350px',
-                hight: '350px',
-                position: 'absolute', // 絕對定位
-                bottom: 80, // 距離底部 0px
-                left: 180, // 距離左側 0px
-                opacity: 0.3, 
-              }}
-            />
-          </div>
+          <img
+            src="homepage/Linked Path Group (1).gif"
+            alt="Animated GIF"
+            style={{
+              width: '350px',
+              hight: '350px',
+              position: 'absolute', // 絕對定位
+              bottom: 80, // 距離底部 0px
+              left: 180, // 距離左側 0px
+              opacity: 0.3,
+            }}
+          />
+        </div>
         {/* Video 1 */}
         <video
           src="/mp4/video1.mp4"

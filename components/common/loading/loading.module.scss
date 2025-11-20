@@ -80,13 +80,13 @@
   }
 }
 .overlay {
-  position: fixed;            // 確保定位在螢幕的最上層
+  position: fixed; // 確保定位在螢幕的最上層
   top: 0;
   left: 0;
   width: 100%;
   height: 100vh;
-  background-color: rgba(221, 221, 221, 0.651);  // 半透明背景
-  z-index: 9999;              // 設置為一個很高的 z-index
+  background-color: rgba(221, 221, 221, 0.651); // 半透明背景
+  z-index: 9999; // 設置為一個很高的 z-index
   display: flex;
   align-items: center;
   justify-content: center;

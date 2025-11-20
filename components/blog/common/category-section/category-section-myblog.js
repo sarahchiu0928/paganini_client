@@ -54,9 +54,7 @@ const CategorySection = ({ selectedCategory, onCategoryChange }) => {
     // 向後端請求文章數量
     const fetchCategoryCounts = async () => {
       try {
-        const response = await fetch(
-          `${apiBaseUrl}/blog/myblog/${userID}`
-        )
+        const response = await fetch(`${apiBaseUrl}/blog/myblog/${userID}`)
         const data = await response.json()
 
         if (data.category_counts) {

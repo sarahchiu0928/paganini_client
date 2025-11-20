@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import styles from './shopList.module.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPhoneAlt,faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
+import { faPhoneAlt, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons'
 import { faPhone, faMapLocation } from '@fortawesome/free-solid-svg-icons'
 import { apiBaseUrl } from '@/configs'
 
@@ -78,7 +78,7 @@ function Tabs() {
                   )}`}
                   className="w-100 rounded shadow-sm"
                   height={400}
-                  style={{ border: "2px solid #A68E6F" }}
+                  style={{ border: '2px solid #A68E6F' }}
                   allowFullScreen
                   loading="lazy"
                 />
@@ -86,13 +86,20 @@ function Tabs() {
               {/* 商店資訊 */}
               <div className="col-md-6 d-flex flex-column justify-content-center">
                 <h5 className="text-primary fw-bold">{item.shop_name}</h5>
-                <div className="d-flex align-items-center my-2">                            <FontAwesomeIcon icon={faMapMarkerAlt} className="text-danger me-2" />
-
+                <div className="d-flex align-items-center my-2">
+                  {' '}
+                  <FontAwesomeIcon
+                    icon={faMapMarkerAlt}
+                    className="text-danger me-2"
+                  />
                   <span className="text-secondary">{item.shop_address}</span>
                 </div>
                 <div className="d-flex align-items-center my-2">
-                <FontAwesomeIcon icon={faPhoneAlt} className="text-success me-2" />
-                <span className="text-dark">{item.shop_phone}</span>
+                  <FontAwesomeIcon
+                    icon={faPhoneAlt}
+                    className="text-success me-2"
+                  />
+                  <span className="text-dark">{item.shop_phone}</span>
                 </div>
                 <hr />
                 <div>
@@ -106,8 +113,6 @@ function Tabs() {
             </div>
           ))}
         </div>
-
-        
       </>
     )
   }

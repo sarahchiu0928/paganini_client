@@ -64,7 +64,7 @@
   background: transparent; /* 滾動條背景 */
 }
 
-.orderContextScroll{
+.orderContextScroll {
   max-height: 500px; /* 設定最大高度，讓內容超出此高度時可以滾動 */
   overflow-y: auto;
   overflow-x: hidden;
@@ -72,7 +72,7 @@
   scrollbar-color: #ccc transparent;
 }
 @media screen and (max-width: 375px) {
-  .orderContextScroll{
+  .orderContextScroll {
     max-height: 350px; /* 設定最大高度，讓內容超出此高度時可以滾動 */
     overflow-y: auto;
     overflow-x: hidden;
@@ -82,7 +82,7 @@
 }
 // 優惠券專用tab樣式
 .tabBtns button {
-  background: transparent ;
+  background: transparent;
   border: 0;
   color: #5a5650 !important; /* 字體顏色 */
   font-size: 1.1rem;

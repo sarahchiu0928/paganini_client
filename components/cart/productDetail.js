@@ -35,17 +35,14 @@ function ProductDetails({
   // 更新商品數量
   const updateQuantity = async (newQuantity) => {
     try {
-      const response = await fetch(
-        `${apiBaseUrl}/cart/updateQuantity`,
-        {
-          credentials: 'include',
-          method: 'PUT',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ product_id, quantity: newQuantity, size }),
-        }
-      )
+      const response = await fetch(`${apiBaseUrl}/cart/updateQuantity`, {
+        credentials: 'include',
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ product_id, quantity: newQuantity, size }),
+      })
       const result = await response.json()
       if (result.status === 'success') {
         setItemQuantity(newQuantity)
@@ -73,10 +70,9 @@ function ProductDetails({
   useEffect(() => {
     const fetchFavorites = async () => {
       try {
-        const response = await fetch(
-          `${apiBaseUrl}/product-favorites`,
-          { credentials: 'include' }
-        )
+        const response = await fetch(`${apiBaseUrl}/product-favorites`, {
+          credentials: 'include',
+        })
         const data = await response.json()
         if (data.status === 'success') {
           setFavorites(data.data.favorites.map((fav) => fav.product_id))
@@ -260,17 +256,14 @@ function ProductDetails({
   // 刪除商品
   const removeItem = async () => {
     try {
-      const response = await fetch(
-        `${apiBaseUrl}/cart/remove`,
-        {
-          credentials: 'include',
-          method: 'DELETE',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ product_id, size }),
-        }
-      )
+      const response = await fetch(`${apiBaseUrl}/cart/remove`, {
+        credentials: 'include',
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ product_id, size }),
+      })
       const result = await response.json()
       if (result.status === 'success') {
         Swal.fire({
@@ -412,9 +405,11 @@ function ProductDetails({
         </div>
 
         {/* 商品單價和總價 */}
-        <div className="col-12 col-sm-3"
-        onClick={() => handleCardClick(product_id)}
-        style={{ cursor: 'pointer' }}>
+        <div
+          className="col-12 col-sm-3"
+          onClick={() => handleCardClick(product_id)}
+          style={{ cursor: 'pointer' }}
+        >
           {/* 商品單價 */}
           <div className="text-end mb-2">
             {discount_price === '' || discount_price === null ? (

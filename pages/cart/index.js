@@ -147,17 +147,14 @@ export default function CartIndex() {
   // API-PUT(updateAllChecke)-更新[全選]勾選狀態
   const updateAllCheckedStatus = async (selectAll) => {
     try {
-      const response = await fetch(
-        `${apiBaseUrl}/cart/updateAllChecked`,
-        {
-          credentials: 'include',
-          method: 'PUT',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ checked: selectAll }),
-        }
-      )
+      const response = await fetch(`${apiBaseUrl}/cart/updateAllChecked`, {
+        credentials: 'include',
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ checked: selectAll }),
+      })
       const result = await response.json()
       if (result.status === 'success') {
         fetchData() // 更新勾選狀態成功後，重新載入購物車內容
@@ -181,17 +178,14 @@ export default function CartIndex() {
   // API-PUT(updateChecked)-更新[單選]勾選狀態
   const updateCheckedStatus = async (product_id, size, newChecked) => {
     try {
-      const response = await fetch(
-        `${apiBaseUrl}/cart/updateChecked`,
-        {
-          credentials: 'include',
-          method: 'PUT',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ product_id, size, checked: newChecked }),
-        }
-      )
+      const response = await fetch(`${apiBaseUrl}/cart/updateChecked`, {
+        credentials: 'include',
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ product_id, size, checked: newChecked }),
+      })
       const result = await response.json()
       if (result.status === 'success') {
         fetchData() // 更新勾選狀態成功後，重新載入購物車內容
@@ -309,15 +303,12 @@ export default function CartIndex() {
     }
 
     try {
-      const response = await fetch(
-        `${apiBaseUrl}/mycoupons/search`,
-        {
-          credentials: 'include',
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ code: couponCode }),
-        }
-      )
+      const response = await fetch(`${apiBaseUrl}/mycoupons/search`, {
+        credentials: 'include',
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ code: couponCode }),
+      })
       const result = await response.json()
 
       if (result.status === 'success') {

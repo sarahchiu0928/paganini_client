@@ -280,17 +280,14 @@ function TabContent1() {
 
   const fetchOrderItems = async (orderId) => {
     try {
-      const response = await fetch(
-        `${apiBaseUrl}/orders/${orderId}/items`,
-        {
-          credentials: 'include',
-          method: 'GET',
-          headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json',
-          },
-        }
-      )
+      const response = await fetch(`${apiBaseUrl}/orders/${orderId}/items`, {
+        credentials: 'include',
+        method: 'GET',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+      })
       const result = await response.json()
       if (result.status === 'success') {
         return result.data
@@ -403,17 +400,14 @@ function TabContent2() {
 
   const fetchOrderItems = async (orderId) => {
     try {
-      const response = await fetch(
-        `${apiBaseUrl}/orders/${orderId}/items`,
-        {
-          credentials: 'include',
-          method: 'GET',
-          headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json',
-          },
-        }
-      )
+      const response = await fetch(`${apiBaseUrl}/orders/${orderId}/items`, {
+        credentials: 'include',
+        method: 'GET',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+      })
       const result = await response.json()
       if (result.status === 'success') {
         return result.data

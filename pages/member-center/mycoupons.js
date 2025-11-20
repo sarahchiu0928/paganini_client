@@ -103,17 +103,14 @@ function Tabs() {
   // 搜尋領取優惠券
   const handleClaimClick = async () => {
     try {
-      const response = await fetch(
-        `${apiBaseUrl}/mycoupons/search`,
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          credentials: 'include',
-          body: JSON.stringify({ code: couponCode }),
-        }
-      )
+      const response = await fetch(`${apiBaseUrl}/mycoupons/search`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        credentials: 'include',
+        body: JSON.stringify({ code: couponCode }),
+      })
       const result = await response.json()
 
       if (result.status === 'duplicate') {

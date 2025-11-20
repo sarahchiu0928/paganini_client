@@ -7,7 +7,7 @@ const OrderCouponContext = createContext(null)
 
 export const OrderCouponProvider = ({ children }) => {
   // 訂單詳情
-  const [totalQuantity, setTotalQuantity] = useState(0) 
+  const [totalQuantity, setTotalQuantity] = useState(0)
   const [totalPrice, setTotalPrice] = useState(0) // 儲存總金額計算結果
   const [coupon_id, setCoupon_id] = useState(null)
   const [discountedPrice, setDiscountedPrice] = useState(0) // 折扣後總金額

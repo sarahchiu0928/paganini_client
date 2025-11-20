@@ -1,6 +1,6 @@
-import React from 'react';
-import Image from 'next/image';
-import styles from './blog.module.scss';
+import React from 'react'
+import Image from 'next/image'
+import styles from './blog.module.scss'
 
 export default function BlogSection() {
   const blogs = [
@@ -46,7 +46,7 @@ export default function BlogSection() {
       date: '2024/07/26',
       description: '給初學者購買提琴的幾點建議',
     },
-  ];
+  ]
 
   return (
     <section className={`${styles.paperBg} ${styles.sectionPadding}`}>
@@ -71,7 +71,7 @@ export default function BlogSection() {
           <div className="col-lg-5">
             <div
               className={`sticky-top ${styles.leftBlog}`}
-              style={{ top: '150px' , zIndex: 1}}
+              style={{ top: '150px', zIndex: 1 }}
             >
               <div className={styles.imageContainer}>
                 <Image
@@ -136,5 +136,5 @@ export default function BlogSection() {
         </div>
       </div>
     </section>
-  );
+  )
 }

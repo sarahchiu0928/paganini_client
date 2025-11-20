@@ -1,6 +1,5 @@
 import { useRouter } from 'next/router'
 
-
 // 只作導向到 myblog
 export default function ProductIndex() {
   const router = useRouter()

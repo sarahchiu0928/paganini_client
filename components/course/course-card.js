@@ -71,10 +71,7 @@ const CourseCard = ({ course, searchTerm }) => {
                     </h6>
                   </div>
                   <div className={styles['favorite-icon']}>
-                    <CourseLike
-                      
-                      course_id={course_id}
-                    />
+                    <CourseLike course_id={course_id} />
                   </div>
                 </div>
                 <div className={styles['instructor-section']}>

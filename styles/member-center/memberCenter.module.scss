@@ -19,7 +19,6 @@
   padding-right: 45px;
 }
 
-
 //文字跳動
 
 .active {
@@ -28,7 +27,7 @@
 }
 
 .active::after {
-  content: "";
+  content: '';
   position: absolute;
   bottom: -7px;
   left: 50%;
@@ -70,18 +69,14 @@
   }
 }
 
-
-
-
 .contentArea {
   // border-top: 1px solid #716657;
   // margin-top: 95px;
   padding-left: 20px;
   height: 100%;
   // overflow-y: auto;
-
 }
 
-.memberBtn:hover{
+.memberBtn:hover {
   color: #fff !important;
 }

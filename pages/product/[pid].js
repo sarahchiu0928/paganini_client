@@ -26,7 +26,7 @@ export default function Detail() {
     pictures: '',
   })
   const [notFound, setNotFound] = useState(false)
-  const [isMobile, setIsMobile] = useState(false);
+  const [isMobile, setIsMobile] = useState(false)
 
   const getProduct = async (id) => {
     const url = `${apiBaseUrl}/products/${id}`
@@ -61,22 +61,18 @@ export default function Detail() {
     }
   }, [product.product_name])
 
-
-
-
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth <= 767); // 偵測螢幕寬度
-    };
+      setIsMobile(window.innerWidth <= 767) // 偵測螢幕寬度
+    }
 
-    handleResize(); // 初始化
-    window.addEventListener('resize', handleResize);
+    handleResize() // 初始化
+    window.addEventListener('resize', handleResize)
 
     return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
-
+      window.removeEventListener('resize', handleResize)
+    }
+  }, [])
 
   return (
     <>
@@ -106,9 +102,10 @@ export default function Detail() {
                   />
                 )}
 
-                <ProductDetailDown 
-                description={product.description}
-                product_id={product.id} />
+                <ProductDetailDown
+                  description={product.description}
+                  product_id={product.id}
+                />
                 <Recommend product_id={product.id} />
               </div>
             </div>

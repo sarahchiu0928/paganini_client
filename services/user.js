@@ -140,7 +140,6 @@ export const removeCourseFav = async (cid) => {
   return await axiosInstance.delete(`course-like/${cid}`)
 }
 
-
 export const useUser = (id) => {
   const { data, error, isLoading } = useSWR(`/users/${id}`, fetcher)
 

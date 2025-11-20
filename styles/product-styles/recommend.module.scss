@@ -40,38 +40,33 @@
     height: 220px;
   }
 
-
   @media screen and (max-width: 484px) {
-    height: 200px
+    height: 200px;
   }
 
   @media screen and (max-width: 440px) {
-    height: 180px
+    height: 180px;
   }
 
   @media screen and (max-width: 375px) {
-    height: 151px
+    height: 151px;
   }
 }
 
 .productName {
-
-    font-size: 1.1rem;
+  font-size: 1.1rem;
 
   @media screen and (max-width: 992px) {
     font-size: 0.9rem;
   }
 }
 
-.recommendCardImg:hover{
+.recommendCardImg:hover {
   transform: scale(1.03);
 }
 
-
 .brandName {
-  
   font-size: 1rem;
-  
 
   @media screen and (max-width: 992px) {
     font-size: 0.9rem;

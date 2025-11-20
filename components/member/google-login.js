@@ -72,6 +72,5 @@ export default function GoogleLoginButton() {
       </button>
       <Toaster />
     </>
-  );
-  
+  )
 }
