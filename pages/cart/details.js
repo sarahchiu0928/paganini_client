@@ -110,7 +110,7 @@ function details() {
   // 抓取所有門市資料
   const fetchShops = async () => {
     try {
-      const response = await fetch('${apiBaseUrl}/shop')
+      const response = await fetch(`${apiBaseUrl}/shop`)
       const result = await response.json()
       if (result.status === 'success') {
         setShops(result.data.shop) // 儲存門市資料至 shops 狀態
@@ -128,7 +128,7 @@ function details() {
   // 建立訂單
   const addToOrders = async () => {
     try {
-      const response = await fetch('${apiBaseUrl}/orders/add', {
+      const response = await fetch(`${apiBaseUrl}/orders/add`, {
         credentials: 'include',
         method: 'POST',
         headers: {

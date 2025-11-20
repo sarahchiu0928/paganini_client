@@ -57,7 +57,7 @@ const Course = () => {
   useEffect(() => {
     const fetchAllCourse = async () => {
       try {
-        const response = await fetch('${apiBaseUrl}/course')
+        const response = await fetch(`${apiBaseUrl}/course`)
         const result = await response.json()
         if (result.status === 'success') {
           const sortedCourse = result.data.course.sort(
@@ -80,7 +80,7 @@ const Course = () => {
 
     const fetchRelatedCourses = async () => {
       try {
-        const response = await fetch('${apiBaseUrl}/course') // 確認 API 路徑是否正確
+        const response = await fetch(`${apiBaseUrl}/course`) // 確認 API 路徑是否正確
         const result = await response.json()
 
         if (result.status === 'success' && Array.isArray(result.data.course)) {

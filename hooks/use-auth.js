@@ -102,7 +102,7 @@ export function AuthProvider({ children }) {
   }
 
   const getMember = async () => {
-    const res = await fetch('${apiBaseUrl}/users', {
+    const res = await fetch(`${apiBaseUrl}/users`, {
       credentials: 'include',
       headers: {
         Accept: 'application/json',
@@ -121,7 +121,7 @@ export function AuthProvider({ children }) {
   }
 
   const register = async (user) => {
-    const res = await fetch('${apiBaseUrl}/users', {
+    const res = await fetch(`${apiBaseUrl}/users`, {
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
@@ -163,7 +163,7 @@ export function AuthProvider({ children }) {
   }
 
   const update = async (user) => {
-    const res = await fetch('${apiBaseUrl}/users', {
+    const res = await fetch(`${apiBaseUrl}/users`, {
       credentials: 'include',
       headers: {
         Accept: 'application/json',
@@ -183,7 +183,7 @@ export function AuthProvider({ children }) {
   }
 
   const login = async (account, password) => {
-    const res = await fetch('${apiBaseUrl}/users/login', {
+    const res = await fetch(`${apiBaseUrl}/users/login`, {
       credentials: 'include',
       headers: {
         Accept: 'application/json',
@@ -242,7 +242,7 @@ export function AuthProvider({ children }) {
   }
 
   const logout = async () => {
-    const res = await fetch('${apiBaseUrl}/users/logout', {
+    const res = await fetch(`${apiBaseUrl}/users/logout`, {
       credentials: 'include',
       headers: {
         Accept: 'application/json',
@@ -299,7 +299,7 @@ export function AuthProvider({ children }) {
 
   const refreshSession = async () => {
     try {
-      const res = await fetch('${apiBaseUrl}/users/refresh-token', {
+      const res = await fetch(`${apiBaseUrl}/users/refresh-token`, {
         credentials: 'include',
         headers: {
           Accept: 'application/json',

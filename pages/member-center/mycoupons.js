@@ -104,7 +104,7 @@ function Tabs() {
   const handleClaimClick = async () => {
     try {
       const response = await fetch(
-        '${apiBaseUrl}/mycoupons/search',
+        `${apiBaseUrl}/mycoupons/search`,
         {
           method: 'POST',
           headers: {

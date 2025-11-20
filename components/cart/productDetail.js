@@ -36,7 +36,7 @@ function ProductDetails({
   const updateQuantity = async (newQuantity) => {
     try {
       const response = await fetch(
-        '${apiBaseUrl}/cart/updateQuantity',
+        `${apiBaseUrl}/cart/updateQuantity`,
         {
           credentials: 'include',
           method: 'PUT',
@@ -261,8 +261,7 @@ function ProductDetails({
   const removeItem = async () => {
     try {
       const response = await fetch(
-        `
-        ${apiBaseUrl}/cart/remove`,
+        `${apiBaseUrl}/cart/remove`,
         {
           credentials: 'include',
           method: 'DELETE',

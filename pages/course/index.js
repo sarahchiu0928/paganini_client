@@ -21,7 +21,7 @@ const CourseList = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('${apiBaseUrl}/course')
+        const response = await fetch(`${apiBaseUrl}/course`)
         const result = await response.json()
         if (result.status === 'success') {
           setData(result.data.course)

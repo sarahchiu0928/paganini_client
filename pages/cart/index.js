@@ -251,7 +251,7 @@ export default function CartIndex() {
     if (showCouponModal) {
       const fetchValidCoupons = async () => {
         try {
-          const response = await fetch('${apiBaseUrl}/mycoupons', {
+          const response = await fetch(`${apiBaseUrl}/mycoupons`, {
             method: 'GET',
             credentials: 'include',
             headers: {
@@ -310,7 +310,7 @@ export default function CartIndex() {
 
     try {
       const response = await fetch(
-        '${apiBaseUrl}/mycoupons/search',
+        `${apiBaseUrl}/mycoupons/search`,
         {
           credentials: 'include',
           method: 'POST',

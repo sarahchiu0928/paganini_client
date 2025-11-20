@@ -234,7 +234,7 @@ const Write = () => {
     console.log(title, category, value, image, userID, new Date().toISOString())
 
     try {
-      const response = await fetch('${apiBaseUrl}/blog/write', {
+      const response = await fetch(`${apiBaseUrl}/blog/write`, {
         method: 'POST',
         body: formData,
         credentials: 'include', // Ensure that cookies/session data are included

@@ -165,7 +165,7 @@ export default function ProductDetailRight({
       }
 
       // 發送請求將商品加入購物車
-      const addResponse = await fetch('${apiBaseUrl}/cart/add', {
+      const addResponse = await fetch(`${apiBaseUrl}/cart/add`, {
         credentials: 'include',
         method: 'POST',
         headers: {

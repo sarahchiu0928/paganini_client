@@ -3,10 +3,17 @@ export const DEV = true
 
 // express 的位置
 export const apiBaseUrl =
-  process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:3005/api'
+  `${process.env.NEXT_PUBLIC_API_BASE_URL}/api` || 'http://localhost:3005/api'
 export const avatarBaseUrl =
-  `${process.env.NEXT_PUBLIC_API_BASE_URL}/avatar` ||
-  'http://localhost:3005/avatar'
+  (process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:3005/api').replace(
+    '/api',
+    ''
+  ) + '/avatar'
+export const blogBaseUrl =
+  (process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:3005/api').replace(
+    '/api',
+    ''
+  ) + '/blog'
 
 // breadcrumb面包屑使用
 // 用pathname英文對照中文的名稱(類似關聯陣列的物件)
